@@ -1,0 +1,119 @@
+﻿
+.sts_search_search_form_div {
+    display: grid;
+    grid-template-columns: 49% 1% 49%;
+    grid-template-rows: auto;
+    grid-gap: 2px;
+    font-family: arial;
+    font-size: 12px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+.div_divider {
+    grid-column: 2;
+    grid-row: 1;
+    border-left: 1px solid lightgray;
+}
+
+.search_ToFrom_div {
+    grid-column: 1;
+    grid-row: 1/5;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-gap: 2px;
+    grid-template-rows: 30px 30px 30px ;
+    padding: 2px;
+}
+
+
+.sts_search_fromdate_lbl {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.sts_search_fromdate_dte {
+    grid-column: 2;
+    grid-row: 1;
+    border-radius: 5px;
+}
+
+.sts_search_todate_lbl {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.sts_search_todate_dte {
+    grid-column: 2;
+    grid-row: 2;
+    border-radius: 5px;
+}
+
+.sts_search_fromtodate_btn {
+    grid-column: 2;
+    grid-row:3 ;
+    width: 50%;
+    float: right;
+}
+
+.search_DateInvoice_div {
+    grid-column: 3;
+    grid-row: 1/5;
+    display: grid;
+    grid-template-columns: 70% 30%;
+    grid-gap: 2px;
+    grid-template-rows: 30px 30px 30px 30px;
+    padding: 5px;
+}
+
+.sts_search_date_lbl {
+    grid-column: 1/3;
+    grid-row: 1;
+    padding: 2px;
+}
+
+.sts_search_date_txt {
+    grid-column: 1;
+    grid-row: 2;
+    padding: 2px;
+    border-radius: 5px;
+}
+
+.sts_search_date_btn {
+    grid-column: 2;
+    grid-row: 2;
+    padding: 2px;
+}
+
+.sts_search_InvoiceNo_lbl {
+    grid-column: 1/3;
+    grid-row: 3;
+    padding: 2px;
+}
+
+.sts_search_InvoiceNo_txt {
+    grid-column: 1;
+    grid-row: 4;
+    padding: 2px;
+    border-radius: 5px;
+}
+
+.sts_search_InvoiceNo_btn {
+    grid-column: 2;
+    grid-row: 4;
+    padding: 2px;
+}
+
+.sts_search_form_ajax_loader {
+    grid-column: 1/3;
+    grid-row: 1;
+    visibility: hidden;
+    position: center;
+}
+
+    .sts_search_form_ajax_loader img {
+        position: relative;
+        top: 45%;
+        left: 45%;
+    }

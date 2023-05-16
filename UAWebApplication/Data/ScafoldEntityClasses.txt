@@ -1,0 +1,6 @@
+﻿Scaffold-DbContext "Data Source=.\SQLEXPRESS;Initial Catalog=maxfuelsdb;User ID=sa;Password=pass;TrustServerCertificate=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Context ApplicationDbContext -Force
+
+
+
+protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+     => optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["CS"].ConnectionString);

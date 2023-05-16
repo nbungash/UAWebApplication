@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "New Destination";
+}
+
+<link rel="stylesheet" href="~/css/Setup/new_destination.css" asp-append-version="true" />
+
+<form id="new_destination_form" class="new_destination_form" style="display:none;">
+    <div class="new_destination_main_div">
+        <label class="new_destination_company_lbl">Company : </label>
+        <select class="new_destination_company_select"></select>
+        <label class="new_destination_title_lbl">Title : </label>
+        <input class="new_destination_title_txt"/>
+        <label class="new_destination_title_urdu_lbl">Title Urdu : </label>
+        <input class="new_destination_title_urdu_txt" />
+        <label class="new_destination_code_lbl">Code : </label>
+        <input class="new_destination_code_txt" />
+        <hr class="new_destination_hr" />
+        <div class="new_destination_btn_div">
+            <button class="new_destination_save_btn ui-button ui-widget ui-widget-content ui-corner-all"
+                    type="button" tabindex="36">
+                Save <i class="fa fa-save"></i>
+            </button>
+        </div>
+        <div class="new_destination_ajax-loader">
+            <img src="~/Images/ajax-loading.gif" height="80" width="80" class="img-responsive" />
+        </div>
+    </div>
+</form>

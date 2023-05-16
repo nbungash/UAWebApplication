@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "User Roles";
+}
+
+<link rel="stylesheet" href="~/css/Admin/user_roles.css" asp-append-version="true" />
+
+<form id="user_roles_form" class="user_roles_form" method="post" style="display:none;">
+    <div class="user_roles_main_div">
+        <label class="user_roles_page_lbl">Page : </label>
+        <select class="user_roles_page_select" id="roles_page_select"></select>
+        <button class="user_roles_view_btn" type="button">View</button>
+        <button class="user_roles_save_btn" type="button">Save</button>
+        <div class="user_roles_table_div">
+            <table class="user_roles_table cell-border display" id="user_roles_table">
+                <col class="user_roles_check_column">
+                <col class="user_roles_id_column">
+                <col class="user_roles_name_column">
+                <thead>
+                    <tr>
+                        <th style="text-align: center;padding:9px;"><input class="user_roles_all_check" id="user_roles_all_check" type="checkbox" /></th>
+                        <th style="text-align: center;padding:9px;">Id</th>
+                        <th style="text-align: center;padding:9px;">Role Name</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</form>

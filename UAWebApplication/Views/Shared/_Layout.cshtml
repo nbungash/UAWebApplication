@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - UA</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/lib/jquery-ui-1.13.2.custom/jquery-ui.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/lib/DataTables-1.13.2/datatables.min.css"/>
+    <link rel="stylesheet" type="text/css" href="~/lib/DataTables-1.13.2/DataTables-1.13.2/css/dataTables.jqueryui.min.css"/>
+    <link id="stylesheet" rel="stylesheet" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/UAWebApplication.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/font-awesome/css/fontawesome.css" />
+    <link rel="stylesheet" href="~/lib/Font-Awesome/css/regular.min.css">
+    <link rel="stylesheet" href="~/lib/Font-Awesome/css/solid.min.css">
+    <link rel="stylesheet" href="~/lib/context-menu/jquery.contextMenu.min.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="~/images/logo_small.jpg" width="40" height="40" />
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        @{
+                            if (this.User.Identity.IsAuthenticated)
+                            {
+                                if (this.User.IsInRole("DEVELOPER") || this.User.IsInRole("ADMINISTRATOR")){
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownSetup" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Admin
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownSetup">
+                                            @{if(this.User.IsInRole("DEVELOPER")){
+                                                    <li><a class="dropdown-item" asp-controller="Resource" asp-action="Resource">Resources</a></li>
+                                                    <li><a class="dropdown-item" asp-controller="Role" asp-action="Role">Roles</a></li>
+                                            }
+                                            }
+                                           @{if (this.User.IsInRole("DEVELOPER") || this.User.IsInRole("ADMINISTRATOR"))
+                                             {
+                                                 <li><a class="dropdown-item" asp-controller="User" asp-action="UserManagement">Users</a></li>
+                                             }
+                                           }
+                                        </ul>
+                                    </li>
+                                }
+
+                                if (this.User.IsInRole("DEVELOPER") || this.User.IsInRole("ADMINISTRATOR") ||
+                                this.User.IsInRole("CHART_OF_ACCOUNT_VIEW") || this.User.IsInRole("CASH_BOOK_VIEW") ||
+                                this.User.IsInRole("GENERAL_LEDGER_VIEW") || 
+                                this.User.IsInRole("TRIP_VIEW") || this.User.IsInRole("GENERAL_JOURNAL_VIEW"))
+                                {
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownSetup" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Books
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownSetup">
+                                            @{
+                                                if (this.User.IsInRole("CHART_OF_ACCOUNT_VIEW") || this.User.IsInRole("DEVELOPER") || this.User.IsInRole("ADMINISTRATOR"))
+                                                {
+                                                    <li><a class="dropdown-item text-dark" asp-controller="ChartOfAccount" asp-action="ChartOfAccount">Chart of Account</a></li>
+                                                }
+                                            }
+                                            @{
+                                                if (this.User.IsInRole("CASH_BOOK_VIEW") || this.User.IsInRole("DEVELOPER") || this.User.IsInRole("ADMINISTRATOR"))
+                                                {
+                                                    <li><a class="dropdown-item text-dark" asp-controller="CashBook" asp-action="CashBook">Cash Book</a></li>
+                                                }
+                                            }
+                                            @{
+                                                if (this.User.IsInRole("GENERAL_LEDGER_VIEW") || this.User.IsInRole("DEVELOPER") || this.User.IsInRole("ADMINISTRATOR"))
+                                                {
+                                                    <li><a class="dropdown-item text-dark" asp-controller="GeneralLedger" asp-action="GeneralLedger">General Ledger</a></li>
+                                                }
+                                            }
+                                            @{
+                                                if (this.User.IsInRole("TRIP_VIEW") || this.User.IsInRole("DEVELOPER") || this.User.IsInRole("ADMINISTRATOR"))
+                                                {
+                                                    <li><a class="dropdown-item text-dark" asp-controller="Trip" asp-action="Trip">Trip Register</a></li>
+                                                }
+                                            }
+                                            @{
+                                                if (this.User.IsInRole("GENERAL_JOURNAL_VIEW") || this.User.IsInRole("DEVELOPER") || this.User.IsInRole("ADMINISTRATOR"))
+                                                {
+                                                    <li><a class="dropdown-item text-dark" asp-controller="GeneralJournal" asp-action="GeneralJournal">General Journal</a></li>
+                                                }
+                                            }
+                                        </ul>
+                                    </li>
+                                }
+                                
+                                if (this.User.IsInRole("DEVELOPER") || this.User.IsInRole("ADMINISTRATOR") ||
+                                this.User.IsInRole("SETUP_VIEW"))
+                                {
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownSetup" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Setup
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownSetup">
+                                            <li><a class="dropdown-item text-dark" asp-controller="Shipping" asp-action="Shipping">Shipping</a></li>
+                                            <li><a class="dropdown-item text-dark" asp-controller="Destination" asp-action="Destination">Destination</a></li>
+                                            <li><a class="dropdown-item text-dark" asp-controller="Product" asp-action="Product">Product</a></li>
+                                            <li><a class="dropdown-item text-dark" asp-controller="Provinces" asp-action="Provinces">Province</a></li>
+                                        </ul>
+                                    </li>
+                                }
+
+                                if (this.User.IsInRole("DEVELOPER") || this.User.IsInRole("ADMINISTRATOR") ||
+                                this.User.IsInRole("COMPANY_BILL_VIEW") || this.User.IsInRole("PSO_SUMMARY_VIEW") ||
+                                this.User.IsInRole("SALES_TAX_VIEW") || this.User.IsInRole("LORRY_BILL_VIEW"))
+                                {
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownSetup" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Billing
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownSetup">
+                                            @{
+                                                if (this.User.IsInRole("COMPANY_BILL_VIEW") || this.User.IsInRole("DEVELOPER") || this.User.IsInRole("ADMINISTRATOR"))
+                                                {
+                                                    <li><a class="dropdown-item text-dark" asp-controller="CompanyBill" asp-action="CompanyBill">Company Bill</a></li>
+                                                }
+                                            }
+                                            @{
+                                                if (this.User.IsInRole("EFI") || this.User.IsInRole("DEVELOPER") || this.User.IsInRole("ADMINISTRATOR"))
+                                                {
+                                                    <li><a class="dropdown-item text-dark" asp-controller="EFI" asp-action="EFI">EFI</a></li>
+                                                }
+                                            }
+                                            @{
+                                                if (this.User.IsInRole("PSO_SUMMARY_VIEW") || this.User.IsInRole("DEVELOPER") || this.User.IsInRole("ADMINISTRATOR"))
+                                                {
+                                                <li><a class="dropdown-item" asp-controller="PSOSummary" asp-action="PSOSummary">PSO Summary</a></li>
+                                                }}
+                                            @{
+                                                if (this.User.IsInRole("PSO_SALES_TAX_VIEW") || this.User.IsInRole("DEVELOPER") || this.User.IsInRole("ADMINISTRATOR"))
+                                                {
+                                                    <li><a class="dropdown-item" asp-controller="SalesTaxSummary" asp-action="SalesTaxSummary">Sales Tax Summary</a></li>
+                                                }
+                                            }
+                                            @{
+                                                if (this.User.IsInRole("COMPANY_PAYMENT_VIEW") || this.User.IsInRole("DEVELOPER") || this.User.IsInRole("ADMINISTRATOR"))
+                                                {
+                                                    <li><a class="dropdown-item" asp-controller="CompanyPayment" asp-action="CompanyPayment">Company Payment</a></li>
+                                                }
+                                            }
+                                            @{
+                                                if (this.User.IsInRole("LORRY_BILL_VIEW") || this.User.IsInRole("DEVELOPER") || this.User.IsInRole("ADMINISTRATOR"))
+                                                {
+                                                <li><a class="dropdown-item" asp-controller="LorryBill" asp-action="LorryBill">Lorry Bill</a></li>
+                                                }
+                                            }
+                                        </ul>
+                                    </li>
+                                }
+                                if (this.User.IsInRole("DEVELOPER") || this.User.IsInRole("ADMINISTRATOR") ||
+                                this.User.IsInRole("VIEW_SHORT_VIEW") || this.User.IsInRole("CURRENT_BALANCE_VIEW") ||
+                                this.User.IsInRole("MONTHLY_BALANCE_VIEW") || this.User.IsInRole("ANNUAL_WORK_SUMMARY_VIEW"))
+                                {
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownSetup" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Reports
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownSetup">
+                                            @{
+                                                if (this.User.IsInRole("MONTHLY_BALANCES_VIEW") || this.User.IsInRole("DEVELOPER") || this.User.IsInRole("ADMINISTRATOR"))
+                                                {
+                                                    <li><a class="dropdown-item" asp-controller="MonthlyBalances" asp-action="MonthlyBalances">Monthly T/L Balances</a></li>
+                                                }
+                                            }
+                                        </ul>
+                                    </li>
+                                }
+                                
+                            }
+                            else
+                            {
+                                <label style="font-size:20px;font-family:Verdana;font-weight:bold;">United Azad Transport Co</label>
+                            }
+                        }
+                    </ul>
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container-fluid">
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+
+   @* <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - UAWebApplication - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>*@
+
+    <partial name="~/Views/Shared/InformationDialog.cshtml" />
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/jquery-ui-1.13.2.custom/jquery-ui.min.js"></script>
+    <script src="~/lib/DataTables-1.13.2/datatables.min.js"></script>
+    <script src="~/lib/DataTables-1.13.2/DataTables-1.13.2/js/dataTables.jqueryui.min.js"></script>
+    <script src="/lib/context-menu/jquery.contextMenu.min.js"></script>
+    <script src="/lib/context-menu/jquery.ui.position.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       

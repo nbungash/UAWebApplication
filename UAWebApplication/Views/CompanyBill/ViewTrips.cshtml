@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "View Trips";
+}
+
+<link rel="stylesheet" href="~/css/CompanyBill/view_trips.css" asp-append-version="true"/>
+
+<form method="post" class="view_trips_form" id="view_trips_form" style="display:none;">
+    <div class="vt_main_div">
+        <input class="vt_save_btn" type="button" value="Save" />
+        <div class="vt_table_div">
+            <table class="vt_table cell-border" id="vt_table">
+                <col class="vt_check_column">
+                <col class="vt_id_column">
+                <col class="vt_date_column">
+                <col class="vt_shipping_column">
+                <col class="vt_destination_column">
+                <col class="vt_invoice_no_column">
+                <col class="vt_invoice_date_column">
+                <col class="vt_lorry_column">
+                <col class="vt_product_column">
+                <col class="vt_qty_column">
+                <col class="vt_freight_column">
+                <thead>
+                    <tr>
+                        <th style="text-align: center;padding:9px;"><input class="vt_all_check" id="vt_all_check" type="checkbox" /></th>
+                        <th style="text-align: center;padding:9px;">Id</th>
+                        <th style="text-align: center;padding:9px;">Date</th>
+                        <th style="text-align: center;padding:9px;">Shipping</th>
+                        <th style="text-align: center;padding:9px;">Destination</th>
+                        <th style="text-align: center;padding:9px;">Invoice No</th>
+                        <th style="text-align: center;padding:9px;">Invoice Date</th>
+                        <th style="text-align: center;padding:9px;">T/L</th>
+                        <th style="text-align: center;padding:9px;">Product</th>
+                        <th style="text-align: center;padding:9px;">Qty</th>
+                        <th style="text-align: center;padding:9px;">Freight</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="vt_ajax-loader">
+            <img src="~/images/ajax-loading.gif" height="100" width="100" class="img-responsive" />
+        </div>
+
+    </div>
+</form>

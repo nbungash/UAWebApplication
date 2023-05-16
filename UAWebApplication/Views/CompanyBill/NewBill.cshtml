@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "NEW BILL";
+}
+
+<link rel="stylesheet" href="~/css/CompanyBill/new_bill.css" asp-append-version="true"/>
+
+<form id="ncb_form" class="ncb_form" style="display:none;">
+    <div class="ncb_main_div">
+        <label class="ncb_company_lbl">Company : </label>
+        <select class="ncb_company_select" tabindex="1"></select>
+        <label class="ncb_bill_date_lbl">Bill Date : </label>
+        <input class="ncb_bill_date_dp" type="date" tabindex="9" />
+        <label class="ncb_bill_no_lbl">Bill No : </label>
+        <input class="ncb_bill_no_txt" type="text" tabindex="8" />
+        <hr class="ncb_hr" />
+        <div class="ncb_btn_div">
+            <input class="ncb_save_btn" type="button" value="Save" tabindex="11" />
+        </div>
+        <div class="ncb_save_ajax-loader">
+            <img src="~/images/ajax-loading.gif" height="100" width="100" class="img-responsive" />
+        </div>
+    </div>
+</form>

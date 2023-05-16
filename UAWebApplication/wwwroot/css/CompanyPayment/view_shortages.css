@@ -1,0 +1,75 @@
+﻿
+.vs_main_div {
+    display: grid;
+    grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+    grid-template-rows: 30px 200px;
+    grid-gap: 2px;
+    font-family: Arial;
+    font-size: 12px;
+    margin-right:10px;
+}
+.vs_save_btn {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.vs_table_div {
+    grid-column: 1/11;
+    grid-row: 2;
+    width: 100%;
+}
+
+.vs_table {
+    width: 100%;
+}
+
+.vs_table th, td {
+        padding: 10px;
+    }
+.vs_check_column {
+    width: 4%;
+}
+
+.vs_id_column {
+    width: 9%;
+}
+.vs_date_column {
+    width: 9%;
+}
+.vs_shipping_column {
+    width: 10%;
+}
+.vs_destination_column {
+    width: 18%;
+}
+.vs_invoice_no_column {
+    width: 9%;
+}
+.vs_invoice_date_column {
+    width: 9%;
+}
+.vs_lorry_column {
+    width: 9%;
+}
+.vs_product_column {
+    width: 9%;
+}
+.vs_shortage_qty_column {
+    width: 9%;
+}
+.vs_shortage_amount_column {
+    width: 9%;
+}
+
+.vs_ajax-loader {
+    grid-row: 1/3;
+    grid-column: 1/11;
+    visibility: hidden;
+}
+
+    .vs_ajax-loader img {
+        position: relative;
+        top: 45%;
+        left: 45%;
+    }
+

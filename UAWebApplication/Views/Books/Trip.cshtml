@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewBag.Title = "Trip Detail";
+}
+
+<link rel="stylesheet" href="~/css/Books/trip.css" asp-append-version="true"/>
+
+<form method="post">
+    <div class="trip_main_div">
+        <div class="trip_first_row_div">
+            <label class="trip_title_lbl">Trip</label>
+            <label class="trip_party_lbl">Company : </label>
+            <select class="trip_party_select" id="trip_party_select"></select>
+            <label class="trip_from_lbl">From : </label>
+            <input class="trip_from_dp" id="trip_from_dp" type="date" />
+            <label class="trip_to_lbl">To : </label>
+            <input class="trip_to_dp" type="date" />
+            <input class="trip_filter_btn" type="button" value="Filter" />
+            <input class="trip_find_btn" type="button" value="Find Trips" />
+            <input class="trip_print_btn" type="button" value="Print" />
+            <input class="trip_new_btn" type="button" value="New" />
+        </div>
+        <div class="trip_table_div">
+            <table class="trip_table cell-border" id="trip_table">
+                <col class="trip_id_column">
+                <col class="trip_date_column">
+                <col class="trip_lorry_column">
+                <col class="trip_token_no_column">
+                <col class="trip_qty_column">
+                <col class="trip_freight_column">
+                <col class="trip_commission_column">
+                <col class="trip_tax_column">
+                <col class="trip_short_qty_column">
+                <col class="trip_short_amount_column">
+                <col class="trip_advance_column">
+                <col class="trip_munshiana_column">
+                <col class="trip_actions_column">
+                <thead>
+                    <tr>
+                        <th style="text-align: center;padding:9px;">Id</th>
+                        <th style="text-align: center;padding:9px;">Date</th>
+                        <th style="text-align: center;padding:9px;">T/L</th>
+                        <th style="text-align: center;padding:9px;">Token No</th>
+                        <th style="text-align: center;padding:9px;">Quantity</th>
+                        <th style="text-align: center;padding:9px;">Freight</th>
+                        <th style="text-align: center;padding:9px;">Comm</th>
+                        <th style="text-align: center;padding:9px;">Tax</th>
+                        <th style="text-align: center;padding:9px;">Short Qty</th>
+                        <th style="text-align: center;padding:9px;">Short Amt</th>
+                        <th style="text-align: center;padding:9px;">Trip Adv</th>
+                        <th style="text-align: center;padding:9px;">Munshiana</th>
+                        <th style="text-align: center;padding:9px;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+
+            </table>
+        </div>
+        <div class="trip_ajax-loader">
+            <img src="~/images/ajax-loading.gif" height="150" width="150" class="img-responsive" />
+        </div>
+    </div>
+</form>
+
+<partial name="~/Views/Books/FindTrip.cshtml" />
+<partial name="~/Views/Books/NewTrip.cshtml" />
+
+@section Scripts{
+    <script src="~/js/Books/trip.js" asp-append-version="true"></script>
+    <script src="~/js/Books/find_trip.js" asp-append-version="true"></script>
+    <script src="~/js/Books/new_trip.js" asp-append-version="true"></script>
+}
+

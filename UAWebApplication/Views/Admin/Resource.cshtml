@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Resources";
+}
+
+<link rel="stylesheet" href="~/css/Admin/resource.css" asp-append-version="true" />
+<form method="post">
+    <div class="page_main_div">
+
+        <label class="page_title_lbl">Resources</label>
+        <button class="page_new_page_btn" type="button">New Resource</button>
+        <div class="page_table_div">
+            <table class="page_table cell-border display" id="page_table">
+                <col class="page_id_column">
+                <col class="page_title_column">
+                <col class="page_action_column">
+                <col class="page_extra_column">
+                <thead>
+                    <tr>
+                        <th style="text-align: center;padding:9px;">Id</th>
+                        <th style="text-align: center;padding:9px;">Title</th>
+                        <th style="text-align: center;padding:9px;">Action</th>
+                        <th style="text-align: center;padding:9px;"></th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</form>
+
+<partial name="~/Views/Admin/NewResource.cshtml" />
+
+
+@section Scripts{
+    <script src="~/js/Admin/resource.js" asp-append-version="true"></script>
+    <script src="~/js/Admin/new_resource.js" asp-append-version="true"></script>
+}

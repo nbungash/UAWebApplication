@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "New Role";
+}
+
+<link rel="stylesheet" href="~/css/Admin/new_role.css" asp-append-version="true" />
+<script src="~/js/Admin/new_role.js" asp-append-version="true"></script>
+
+<form id="new_role_form" class="new_role_form" style="display:none;">
+    <div class="new_role_main_div">
+        <label class="new_role_title_lbl">Name : </label>
+        <input class="new_role_title_txt" type="text" />
+        <label class="new_role_page_lbl">Resource : </label>
+        <select class="new_role_page_select"  id="new_role_page_select"></select>
+        <hr class="new_role_hr" />
+        <div class="new_role_btn_div">
+            <button class="new_role_save_btn" type="button" tabindex="36">Save</button>
+            <div class="new_role_save_ajax-loader">
+                <img src="~/Images/ajax-loading.gif" height="80" width="80" class="img-responsive" />
+            </div>
+        </div>
+    </div>
+</form>

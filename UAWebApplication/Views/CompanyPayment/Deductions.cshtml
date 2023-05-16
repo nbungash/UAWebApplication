@@ -1,0 +1,104 @@
+﻿
+@{
+    ViewBag.Title = "Deductions";
+}
+
+<link rel="stylesheet" href="~/Content/Billing/CompanyPayment/deductions.css" />
+<link rel="stylesheet" href="~/Content/Billing/CompanyPayment/deductions_update.css" />
+<script src="~/Scripts/Billing/CompanyPayment/deductions.js"></script>
+
+<form id="deductions_form" class="deductions_form" style="display:none;">
+    <div class="deductions_main_div">
+        <div class="deductions_row1_div">
+            <select class="deductions_group_select" id="deductions_group_select"
+                    disabled tabindex="2"></select>
+            <select class="deductions_account_select" id="deductions_account_select"
+                    disabled tabindex="3"></select>
+            <input class="deductions_description_txt" type="text" readonly tabindex="4" />
+            <input class="deductions_amount_txt" type="text" readonly tabindex="5" />
+            <input class="deductions_lorry_letter_txt" type="text" readonly tabindex="6" />
+            <input class="deductions_lorry_digit_txt" type="text" readonly tabindex="7" />
+            <select class="deductions_bill_month_select" id="deductions_bill_month_select" tabindex="8"></select>
+            <select class="deductions_entry_type_select" id="deductions_entry_type_select"
+                    tabindex="9" disabled>
+                <option value="W/H Tax">W/H Tax</option>
+                <option value="Sales Tax">Sales Tax</option>
+                <option value="Other">Other</option>
+            </select>
+            <input class="deductions_action_txt" type="text" readonly tabindex="10" />
+        </div>
+        <div class="deductions_table_div">
+            <table class="deductions_table cell-border" id="deductions_table">
+                <col class="deductions_group_column">
+                <col class="deductions_account_column">
+                <col class="deductions_description_column">
+                <col class="deductions_amount_column">
+                <col class="deductions_lorry_column">
+                <col class="deductions_bill_month_column">
+                <col class="deductions_entry_type_column">
+                <col class="deductions_actions_column">
+                <thead>
+                    <tr>
+                        <th style="text-align: center;padding:9px;">Group</th>
+                        <th style="text-align: center;padding:9px;">Account</th>
+                        <th style="text-align: center;padding:9px;">Description</th>
+                        <th style="text-align: center;padding:9px;">Amount</th>
+                        <th style="text-align: center;padding:9px;">T/L</th>
+                        <th style="text-align: center;padding:9px;">Bill Month</th>
+                        <th style="text-align: center;padding:9px;">Entry Type</th>
+                        <th style="text-align: center;padding:9px;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <hr class="deductions_hr" />
+        <div class="deductions_btn_div">
+            <input class="deductions_save_btn" type="button" value="Save" disabled tabindex="37" />
+            <input class="deductions_close_btn" type="button" value="Close" tabindex="38" />
+        </div>
+        <div class="deductions_ajax-loader">
+            <img src="~/Content/Images/ajax-loading.gif" height="150" width="150"
+                 class="img-responsive" />
+        </div>
+
+    </div>
+</form>
+
+<form id="deductions_update_form" class="deductions_update_form" style="display:none;">
+    <div class="dupdate_main_div">
+        <label class="dupdate_group_lbl">Group</label>
+        <select class="dupdate_group_select" id="dupdate_group_select"></select>
+        <label class="dupdate_account_lbl">Account</label>
+        <select class="dupdate_account_select" id="dupdate_account_select"></select>
+        <label class="dupdate_description_lbl">Description</label>
+        <input class="dupdate_description_txt" type="text" />
+        <label class="dupdate_amount_lbl">Amount</label>
+        <input class="dupdate_amount_txt" type="text" />
+        <label class="dupdate_lorry_lbl">T/L</label>
+        <div class="dupdate_lorry_div">
+            <input class="dupdate_lorry_letter_txt" type="text" />
+            <input class="dupdate_lorry_digit_txt" type="text" />
+        </div>
+        <label class="dupdate_bill_month_lbl">Lorry Bill</label>
+        <select class="dupdate_bill_month_select" id="dupdate_bill_month_select"></select>
+        <label class="dupdate_entry_type_lbl">Entry Type</label>
+        <select class="dupdate_entry_type_select" id="dupdate_entry_type_select"
+                tabindex="9">
+            <option value="W/H Tax">W/H Tax</option>
+            <option value="Sales Tax">Sales Tax</option>
+            <option value="Other">Other</option>
+        </select>
+        <hr class="dupdate_hr" />
+        <div class="dupdate_btn_div">
+            <input class="dupdate_save_btn" type="button" value="Save" />
+            <input class="dupdate_close_btn" type="button" value="Close" />
+        </div>
+        <div class="dupdate_ajax-loader">
+            <img src="~/Content/Images/ajax-loading.gif" height="150" width="150"
+                 class="img-responsive" />
+        </div>
+
+    </div>
+</form>
+

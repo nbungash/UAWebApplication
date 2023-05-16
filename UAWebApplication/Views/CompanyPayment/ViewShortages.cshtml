@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "View Shortages";
+}
+
+<link rel="stylesheet" href="~/css/CompanyPayment/view_shortages.css" asp-append-version="true"/>
+
+<form method="post" class="view_shortages_form" id="view_shortages_form" style="display:none;">
+    <div class="vs_main_div">
+        <input class="vs_save_btn" type="button" value="Save" />
+        <div class="vs_table_div">
+            <table class="vs_table cell-border" id="vs_table">
+                <col class="vs_check_column">
+                <col class="vs_id_column">
+                <col class="vs_date_column">
+                <col class="vs_shipping_column">
+                <col class="vs_destination_column">
+                <col class="vs_invoice_no_column">
+                <col class="vs_invoice_date_column">
+                <col class="vs_lorry_column">
+                <col class="vs_product_column">
+                <col class="vs_shortage_qty_column">
+                <col class="vs_shortage_amount_column">
+                <thead>
+                    <tr>
+                        <th style="text-align: center;padding:9px;"><input class="vs_all_check" id="vs_all_check" type="checkbox" /></th>
+                        <th style="text-align: center;padding:9px;">Id</th>
+                        <th style="text-align: center;padding:9px;">Date</th>
+                        <th style="text-align: center;padding:9px;">Shipping</th>
+                        <th style="text-align: center;padding:9px;">Destination</th>
+                        <th style="text-align: center;padding:9px;">Invoice No</th>
+                        <th style="text-align: center;padding:9px;">Invoice Date</th>
+                        <th style="text-align: center;padding:9px;">T/L</th>
+                        <th style="text-align: center;padding:9px;">Product</th>
+                        <th style="text-align: center;padding:9px;">Shortage Qty</th>
+                        <th style="text-align: center;padding:9px;">Shortage Amount</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="vs_ajax-loader">
+            <img src="~/images/ajax-loading.gif" height="100" width="100" class="img-responsive" />
+        </div>
+
+    </div>
+</form>

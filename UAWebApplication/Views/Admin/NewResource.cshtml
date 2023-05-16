@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "New Resource";
+}
+
+<link rel="stylesheet" href="~/css/Admin/new_resource.css" asp-append-version="true" />
+
+<form id="new_page_form" class="new_page_form" style="display:none;">
+    <div class="new_page_main_div">
+        <label class="new_page_title_lbl">Title : </label>
+        <input class="new_page_title_txt" />
+        <hr class="new_page_hr" />
+        <div class="new_page_btn_div">
+            <button class="new_page_save_btn" type="button" tabindex="36">Save</button>
+            <div class="new_page_save_ajax-loader">
+                <img src="~/Images/ajax-loading.gif" height="80" width="80" class="img-responsive" />
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,162 @@
+﻿
+@{
+    ViewBag.Title = "Chart Of Account";
+}
+
+<link rel="stylesheet" href="~/css/Books/account.css" asp-append-version="true"/>
+<link rel="stylesheet" href="~/css/Books/new_account.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/Books/new_account_contact.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/Books/lorry_info.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/Books/view_account_contact.css" asp-append-version="true" />
+
+<form method="post">
+    <div class="coa_main_div">
+        <label class="coa_title_lbl">Chart of Account</label>
+        <label class="coa_group_lbl">Find by Group : </label>
+        <select class="coa_group_select"></select>
+        <label class="coa_active_lbl">Active : </label>
+        <div class="coa_active_check_div"><input class="coa_active_check" type="checkbox" checked /></div>
+        <input class="coa_view_btn" type="button" value="View" />
+
+        <label class="coa_title_of_account_lbl">Find By Title : </label>
+        <input class="coa_title_txt" type="text" />
+        <input class="coa_new_account_btn" type="button" value="New Account" />
+        <div class="coa_table_div">
+            <table class="coa_table cell-border" id="coa_table">
+                <col class="coa_group_column">
+                <col class="coa_id_column">
+                <col class="coa_title_column">
+                <col class="coa_type_column">
+                <col class="coa_action_column">
+                <col class="coa_contact_column">
+                <thead>
+                    <tr>
+                        <th style="text-align: center;padding:9px;">Group</th>
+                        <th style="text-align: center;padding:9px;">Id</th>
+                        <th style="text-align: center;padding:9px;">Title</th>
+                        <th style="text-align: center;padding:9px;">Type</th>
+                        <th style="text-align: center;padding:9px;">Action</th>
+                        <th style="text-align: center;padding:9px;">Contact</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="coa_ajax-loader">
+            <img src="~/images/ajax-loading.gif" height="100" width="100" class="img-responsive" />
+        </div>
+    </div>
+</form>
+
+<form id="new_account_form" class="new_account_form" style="display:none;">
+    <div class="na_main_div">
+        <label class="na_group_lbl">Group : </label>
+        <select class="na_group_select">
+            <option>GENERAL</option>
+            <option>PARTY</option>
+            <option>BANK</option>
+            <option>PUMP</option>
+            <option>LORRY</option>
+            <option>PERSONEL</option>
+            <option>EMPLOYEE</option>
+        </select>
+        <label class="na_title_lbl">Title : </label>
+        <input class="na_title_txt" />
+        <label class="na_type_lbl">Type : </label>
+        <select class="na_type_select">
+            <option>ASSET</option>
+            <option>LIABILITY</option>
+            <option>REVENUE</option>
+            <option>EXPENSE</option>
+            <option>CAPITAL</option>
+            <option>DRAWING</option>
+        </select>
+        <label class="na_active_lbl">Active : </label>
+        <div class="na_active_check_div"><input class="na_active_check" type="checkbox" /></div>
+        <hr class="na_hr" />
+        <div class="na_btn_div">
+            <button class="na_save_btn ui-button ui-widget ui-widget-content ui-corner-all"
+                    type="button" tabindex="36">Save <i class="fa fa-save"></i></button>
+        </div>
+        <div class="na_ajax-loader">
+            <img src="~/Images/ajax-loading.gif" height="100" width="100" class="img-responsive" />
+        </div>
+    </div>
+</form>
+
+<form id="new_contact_form" class="new_contact_form" style="display:none;">
+    <div class="contact_main_div">
+        <label class="contact_name_lbl">Name : </label>
+        <input class="contact_name_txt" />
+        <label class="contact_contact_no_lbl">Contact No : </label>
+        <input class="contact_contact_no_txt" />
+        <hr class="contact_hr" />
+        <div class="contact_btn_div">
+            <input class="contact_save_btn" type="button" value="Save" tabindex="15" />
+        </div>
+        <div class="contact_save_ajax-loader">
+            <img src="~/images/ajax-loading.gif" height="80" width="80" class="img-responsive" />
+        </div>
+    </div>
+</form>
+<form id="view_contact_form" class="view_contact_form" style="display:none;">
+    <div class="view_contact_main_div">
+        <div class="view_contact_table_div">
+            <table class="view_contact_table cell-border" id="view_contact_table">
+                <col class="view_contact_name_colmn">
+                <col class="view_contact_contact_column">
+                <col class="view_contact_action_column">
+                <thead>
+                    <tr>
+                        <th style="text-align: center;padding:9px;">Name</th>
+                        <th style="text-align: center;padding:9px;">Contact No</th>
+                        <th style="text-align: center;padding:9px;">Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="view_contact_ajax-loader">
+            <img src="~/Images/ajax-loading.gif" height="100" width="100" class="img-responsive" />
+        </div>
+    </div>
+</form>
+
+<form id="lorry_information_form" class="lorry_information_form" style="display:none;">
+    <div class="lif_main_div">
+        <label class="lif_capacity_lbl">Capacity : </label>
+        <input class="lif_capacity_txt" type="text" />
+        <label class="lif_owner_name_lbl">Owner Name : </label>
+        <input class="lif_owner_name_txt" type="text" />
+
+        <label class="lif_make_lbl">Make : </label>
+        <input class="lif_make_txt" type="text" />
+        <label class="lif_model_lbl">Model : </label>
+        <input class="lif_model_txt" type="text" />
+
+        <label class="lif_engine_lbl">Engine : </label>
+        <input class="lif_engine_txt" type="text" />
+        <label class="lif_chasis_lbl">Chasis : </label>
+        <input class="lif_chasis_txt" type="text" />
+
+        <label class="lif_dip_chart_date_lbl">Dip chart Date : </label>
+        <input class="lif_dip_chart_date_dp" type="date" />
+        <label class="lif_tracker_date_lbl">Tracker Date : </label>
+        <input class="lif_tracker_date_dp" type="date" />
+
+        <label class="lif_token_date_lbl">Token Date : </label>
+        <input class="lif_token_date_dp" type="date" />
+        <hr class="lif_hr" />
+        <div class="lif_btn_div">
+            <input class="lif_save_btn" type="button" value="Save" />
+        </div>
+        <div class="lif_ajax-loader">
+            <img src="~/images/ajax-loading.gif" height="100" width="100" class="img-responsive" />
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    <script src="~/js/Books/chart_of_account.js" asp-append-version="true"></script>
+    <script src="~/js/Books/new_account.js" asp-append-version="true"></script>
+}

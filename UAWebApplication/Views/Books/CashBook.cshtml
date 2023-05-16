@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "Cash Book";
+}
+
+<link rel="stylesheet" href="~/css/Books/cashbook.css" asp-append-version="true"/>
+
+<form method="post">
+    <div class="cash_book_main_div">
+        <div class="cash_book_title_div">
+            <label class="cash_book_title_lbl">Cash Book</label>
+            <label class="cash_book_entry_date_lbl">Date : </label>
+            <input class="cash_book_entry_date_dp" type="date" />
+            <input class="cash_book_view_btn ui-button ui-widget ui-corner-all" type="button" value="View" />
+            <input class="cash_book_transaction_btn ui-button ui-widget ui-corner-all" type="button" value="New Transaction" />
+            <input class="cash_book_trip_btn ui-button ui-widget ui-corner-all" type="button" value="New Trip" />
+        </div>
+        <div class="amdan_table_div">
+            <table class="amdan_table cell-border" id="amdan_table">
+                <col class="amdan_account_column">
+                <col class="amdan_cheque_no_column">
+                <col class="amdan_description_column">
+                <col class="amdan_amount_column">
+                <thead>
+                    <tr>
+                        <th style="text-align: center;padding:9px;">Account</th>
+                        <th style="text-align: center;padding:9px;">Cheque No</th>
+                        <th style="text-align: center;padding:9px;">Description</th>
+                        <th style="text-align: center;padding:9px;">Amount</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="kharch_table_div">
+            <table class="kharch_table cell-border" id="kharch_table">
+                <col class="kharch_account_column">
+                <col class="kharch_description_column">
+                <col class="kharch_amount_column">
+                <thead>
+                    <tr>
+                        <th style="text-align: center;padding:9px;">Account</th>
+                        <th style="text-align: center;padding:9px;">Description</th>
+                        <th style="text-align: center;padding:9px;">Amount</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="cash_book_view_ajax-loader">
+            <img src="~/images/ajax-loading.gif" width="100" height="100" class="img-responsive" />
+        </div>
+
+    </div>
+</form>
+
+<partial name="~/Views/Books/NewTrip.cshtml" />
+<partial name="~/Views/Books/NewTransaction.cshtml" />
+
+@section Scripts{
+    <script src="~/js/Books/cashbook.js" asp-append-version="true"></script>
+    <script src="~/js/Books/transaction_actions.js" asp-append-version="true"></script>
+    <script src="~/js/Books/new_trip.js" asp-append-version="true"></script>
+    <script src="~/js/Books/new_transaction.js" asp-append-version="true"></script>
+}

@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Destination";
+}
+
+<link rel="stylesheet" href="~/css/Setup/Destination.css" asp-append-version="true" />
+
+<form method="post">
+    <div class="destination_main_div">
+        <label class="destination_title_lbl">Destination</label>
+        <label class="destination_company_lbl">Company : </label>
+        <select class="destination_company_select" id="destination_company_select"></select>
+        <button class="destination_new_btn ui-button ui-widget ui-widget-content ui-corner-all" type="button">New <i class="fa fa-plus-circle"></i></button>
+        <div class="destination_table_div">
+            <table class="destination_table cell-border display" id="destination_table">
+                <col class="destination_id_column">
+                <col class="destination_title_column">
+                <col class="destination_title_urdu_column">
+                <col class="destination_code_column">
+                <col class="destination_company_column">
+                <col class="destination_actions_column">
+                <thead>
+                    <tr>
+                        <th style="text-align: center;padding:9px;">Id</th>
+                        <th style="text-align: center;padding:9px;">Title</th>
+                        <th style="text-align: center;padding:9px;">Title Urdu</th>
+                        <th style="text-align: center;padding:9px;">Code</th>
+                        <th style="text-align: center;padding:9px;">Company</th>
+                        <th style="text-align: center;padding:9px;"></th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="destination_ajax-loader">
+            <img src="~/Images/ajax-loading.gif" height="80" width="80" class="img-responsive" />
+        </div>
+    </div>
+</form>
+
+<partial name="~/Views/Setup/NewDestination.cshtml" />
+
+@section Scripts{
+    <script src="~/js/Setup/destination.js" asp-append-version="true"></script>
+    <script src="~/js/Setup/new_destination.js" asp-append-version="true"></script>
+}

@@ -1,0 +1,78 @@
+﻿
+.mlb_main_div {
+    display: grid;
+    grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+    grid-template-rows: 40px auto;
+    grid-gap: 2px;
+    font-family: Arial;
+    font-size: 12px;
+    margin-left: 20px;
+    margin-right: 35px;
+}
+.mlb_title_lbl {
+    grid-column: 1/3;
+    grid-row: 1;
+    font-family: Arial Black;
+    font-size: 20px;
+}
+.mlb_month_lbl {
+    grid-column: 3;
+    grid-row: 1;
+    text-align: right;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+.mlb_month_dp {
+    grid-column: 4;
+    grid-row: 1;
+}
+.mlb_view_btn {
+    grid-column: 5;
+    grid-row: 1;
+}
+.mlb_print_btn {
+    grid-column: 6;
+    grid-row: 1;
+}
+
+.mlb_table_div {
+    grid-column: 1/11;
+    grid-row: 2;
+    width: 100%;
+}
+.mlb_table {
+    width: 100%;
+}
+
+.mlb_table th, td {
+        padding: 10px;
+    }
+.mlb_serial_number_column {
+    width: 10%;
+}
+.mlb_lorry_column {
+    width: 10%;
+}
+.mlb_commission_column {
+    width: 10%;
+}
+.mlb_loan_column {
+    width: 10%;
+}
+.mlb_bachat_column {
+    width: 10%;
+}
+.mlb_extra_column {
+    width: 50%;
+}
+.mlb_ajax-loader {
+    grid-row: 1/3;
+    grid-column: 1/11;
+    visibility: hidden;
+}
+
+    .mlb_ajax-loader img {
+        position: relative;
+        top: 45%;
+        left: 45%;
+    }

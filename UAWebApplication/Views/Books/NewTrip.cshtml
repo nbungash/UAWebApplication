@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewBag.Title = "New Trip";
+}
+
+<link rel="stylesheet" href="~/css/Books/new_trip.css" asp-append-version="true" />
+
+<form id="new_trip_form" class="new_trip_form" style="display:none;">
+    <div class="new_trip_main_div">
+        <label class="nt_trip_detail_lbl">Trip Details</label>
+        <div class="nt_trip_detail_div">
+            <label class="nt_company_lbl">Company : </label>
+            <select class="nt_company_select"></select>
+            <label class="nt_entry_date_lbl">Entry Date</label>
+            <input class="nt_entry_date_dp" type="date"/>
+            <label class="nt_lorry_lbl">T/L : </label>
+            <select class="nt_lorry_select"></select>
+            <label class="nt_shipping_lbl">Shipping : </label>
+            <select class="nt_shipping_select"></select>
+            <label class="nt_destination_lbl">Destination : </label>
+            <select class="nt_destination_select"></select>
+            <label class="nt_product_lbl">Product : </label>
+            <select class="nt_product_select"></select>
+            <label class="nt_munshiana_lbl">Munshiana</label>
+            <input class="nt_munshiana_txt" type="text"/>
+            
+            <label class="nt_invoice_date_lbl">Invoice Date</label>
+            <input class="nt_invoice_date_dp" type="date"/>
+            <label class="nt_token_no_lbl">Token No : </label>
+            <input class="nt_token_no_txt" type="text"/>
+            <label class="nt_quantity_lbl">Quantity : </label>
+            <input class="nt_quantity_txt" type="text" />
+            <label class="nt_freight_lbl">Freight : </label>
+            <input class="nt_freight_txt" type="text" />
+            <label class="nt_tax_percentage_lbl">Tax % : </label>
+            <input class="nt_tax_percentage_txt" type="text" />
+            <input class="nt_tax_amount_txt" type="text" />
+            <label class="nt_commission_percentage_lbl">Commission % : </label>
+            <input class="nt_commission_percentage_txt" type="text" />
+            <input class="nt_commission_amount_txt" type="text" />
+            <label class="nt_shortage_qty_lbl">Shortage Qty : </label>
+            <input class="nt_shortage_qty_txt" type="text" />
+            <input class="nt_shortage_amount_txt" type="text" />
+        </div>
+        <label class="nt_trip_advance_detail_lbl">Trip Advance Details</label>
+        <div class="nt_trip_advance_detail_div">
+            <div class="nt_first_row_div">
+                <input class="nt_date_dp" type="date" />
+                <select class="nt_account_group_select" id="nt_account_group_select" tabindex="12"></select>
+                <select class="nt_account_select" id="nt_account_select" tabindex="12"></select>
+                <input class="nt_description_txt" type="text" tabindex="14" />
+                <input class="nt_amount_txt" type="text" tabindex="15" />
+                <input class="nt_cheque_no_txt" type="text" tabindex="16" />
+            </div>
+            <div class="nt_advance_table_div">
+                <table class="nt_advance_table cell-border" id="nt_advance_table">
+                    <col class="nt_date_column">
+                    <col class="nt_account_group_column">
+                    <col class="nt_account_column">
+                    <col class="nt_description_column">
+                    <col class="nt_amount_column">
+                    <col class="nt_cheque_no_column">
+                    <thead>
+                        <tr>
+                            <th style="text-align: center;padding:9px;">Date</th>
+                            <th style="text-align: center;padding:9px;">Group</th>
+                            <th style="text-align: center;padding:9px;">Account</th>
+                            <th style="text-align: center;padding:9px;">Description</th>
+                            <th style="text-align: center;padding:9px;">Amount</th>
+                            <th style="text-align: center;padding:9px;">Cheque No</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+        <hr class="nt_hr" />
+        <div class="nt_btn_div">
+            <button class="nt_save_btn" type="button" tabindex="17">Save <i class="fa fa-save"></i></button>
+        </div>
+        <div class="nt_save_ajax-loader">
+            <img src="~/images/ajax-loading.gif" height="100" width="100" class="img-responsive" />
+        </div>
+    </div>
+</form>

@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "Company Bill";
+}
+
+<link rel="stylesheet" href="~/css/CompanyBill/view_bill.css" asp-append-version="true"/>
+
+<form method="post">
+    <div class="cb_main_div">
+        <label class="cb_title_lbl">Company Bill</label>
+        <label class="cb_company_lbl">Company : </label>
+        <select class="cb_company_select"></select>
+        <label class="cb_year_lbl">Year : </label>
+        <select class="cb_year_select"></select>
+        <input class="cb_view_btn" type="button" value="View" />
+        <input class="cb_new_btn" type="button" value="New" />
+        <div class="cb_table_div">
+            <table class="cb_table cell-border" id="cb_table">
+                <col class="cb_check_column">
+                <col class="cb_id_column">
+                <col class="cb_bill_no_column">
+                <col class="cb_bill_date_column">
+                <col class="cb_print_column">
+                <col class="cb_trips_column">
+                <col class="cb_sales_tax_column">
+                <col class="cb_actions_column">
+                <thead>
+                    <tr>
+                        <th style="text-align: center;padding:9px;"></th>
+                        <th style="text-align: center;padding:9px;">Id</th>
+                        <th style="text-align: center;padding:9px;">Bill No</th>
+                        <th style="text-align: center;padding:9px;">Bill Date</th>
+                        <th style="text-align: center;padding:9px;">Print</th>
+                        <th style="text-align: center;padding:9px;">Trips</th>
+                        <th style="text-align: center;padding:9px;">Sales Tax</th>
+                        <th style="text-align: center;padding:9px;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="cb_ajax-loader">
+            <img src="~/images/ajax-loading.gif" height="100" width="100" class="img-responsive" />
+        </div>
+    </div>
+</form>
+
+<partial name="~/Views/CompanyBill/NewBill.cshtml" />
+<partial name="~/Views/CompanyBill/ViewTrips.cshtml" />
+<partial name="~/Views/CompanyBill/NewSalesTaxInvoice.cshtml" />
+
+@section Scripts{
+    <script src="~/js/CompanyBill/view_bill.js" asp-append-version="true"></script>
+    <script src="~/js/CompanyBill/new_bill.js" asp-append-version="true"></script>
+    <script src="~/js/CompanyBill/view_trips.js" asp-append-version="true"></script>
+    <script src="~/js/CompanyBill/new_sales_tax_invoice.js" asp-append-version="true"></script>
+}
+
+
+

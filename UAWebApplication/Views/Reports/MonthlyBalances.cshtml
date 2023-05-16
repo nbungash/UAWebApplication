@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "Monthly Balances";
+}
+
+<link rel="stylesheet" href="~/css/Reports/monthly_balances.css" asp-append-version="true"/>
+
+<form method="post">
+    <div class="mlb_main_div">
+            <label class="mlb_title_lbl">Monthly T/L Balances</label>
+            <label class="mlb_month_lbl">Month </label>
+            <input class="mlb_month_dp" type="date" />
+            <input class="mlb_view_btn ui-button ui-widget ui-corner-all" type="button" value="View" />
+            <input class="mlb_print_btn ui-button ui-widget ui-corner-all" type="button" value="Print" />
+        <div class="mlb_table_div" id="mlb_table_div">
+            <table class="mlb_table cell-border" id="mlb_table">
+                <col class="mlb_serial_number_column">
+                <col class="mlb_lorry_column">
+                <col class="mlb_commission_column">
+                <col class="mlb_loan_column">
+                <col class="mlb_bachat_column">
+                <col class="mlb_extra_column">
+                <thead>
+                    <tr>
+                        <th style="text-align: center;padding:9px;">S No</th>
+                        <th style="text-align: center;padding:9px;">T/L</th>
+                        <th style="text-align: center;padding:9px;">Commission</th>
+                        <th style="text-align: center;padding:9px;">Loan</th>
+                        <th style="text-align: center;padding:9px;">Bachat</th>
+                        <th style="text-align: center;padding:9px;"></th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="mlb_ajax-loader">
+            <img src="~/images/ajax-loading.gif" height="100" width="100" class="img-responsive" />
+        </div>
+    </div>
+
+</form>
+
+@section Scripts{
+    <script src="~/js/Reports/monthly_balances.js" asp-append-version="true"></script>
+}
+
+

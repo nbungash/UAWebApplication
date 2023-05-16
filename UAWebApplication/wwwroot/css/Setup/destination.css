@@ -1,0 +1,90 @@
+﻿
+.destination_main_div {
+    display: grid;
+    grid-template-columns: 20% 5% 20% 10% 10% 5% 10% 10% 10%;
+    grid-template-rows: 40px auto;
+    grid-gap: 2px;
+    font-family: Arial;
+    font-size: 12px;
+    margin-left: 20px;
+    margin-right: 35px;
+}
+
+.destination_title_lbl {
+    grid-column: 1;
+    grid-row: 1;
+    font-family: Arial Black;
+    font-size: 20px;
+    text-align: left;
+    margin-left: 5px;
+}
+
+.destination_company_lbl {
+    grid-column: 2;
+    grid-row: 1;
+    text-align: right;
+    margin-top: 10px;
+    margin-right: 5px;
+}
+
+.destination_company_select {
+    grid-column: 3;
+    grid-row: 1;
+    margin-top: 5px;
+}
+.destination_new_btn {
+    grid-column: 9;
+    grid-row: 1;
+    margin-top: 5px;
+}
+
+.destination_table_div {
+    grid-column: 1/10;
+    grid-row: 2;
+    width: 100%;
+}
+
+#destination_table {
+    
+    width: 100%;
+}
+
+    #destination_table th, td {
+        padding: 10px;
+    }
+
+
+.destination_id_column {
+    width: 10%;
+}
+
+.destination_title_column {
+    width: 20%;
+}
+
+.destination_title_urdu_column {
+    width: 20%;
+}
+
+.destination_code_column {
+    width: 10%;
+}
+
+.destination_company_column {
+    width: 20%;
+}
+
+.destination_actions_column {
+    width: 20%;
+}
+.destination_ajax-loader {
+    grid-row: 1/3;
+    grid-column: 1/10;
+    visibility: hidden;
+}
+
+    .destination_ajax-loader img {
+        position: relative;
+        top: 45%;
+        left: 45%;
+    }

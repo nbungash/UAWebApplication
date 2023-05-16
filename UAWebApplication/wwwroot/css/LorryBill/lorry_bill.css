@@ -1,0 +1,240 @@
+﻿
+.lb2_main_div {
+    display: grid;
+    grid-template-rows: 30px 180px auto;
+    grid-template-columns: 9% 5% 9% 5% 8% 5% 9% 10% 10% 10% 10% 10%;
+    grid-gap: 1px;
+    color: #444;
+    font-family: Arial;
+    font-size: 12px;
+    margin-left: 20px;
+    margin-right: 35px;
+}
+.lb2_title_lbl {
+    grid-column: 1;
+    grid-row: 1;
+    font-size:20px;
+    font-family:'Arial Black';
+}
+.lb2_lorry_lbl {
+    grid-column: 2;
+    grid-row: 1;
+    text-align: right;
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+.lb2_lorry_select {
+    grid-column: 3;
+    grid-row: 1;
+}
+.lb2_year_lbl {
+    grid-column: 4;
+    grid-row: 1;
+    text-align: right;
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+.lb2_year_select {
+    grid-column: 5;
+    grid-row: 1;
+}
+.lb2_bill_lbl {
+    grid-column: 6;
+    grid-row: 1;
+    text-align: right;
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+.lb2_bill_select {
+    grid-column: 7;
+    grid-row: 1;
+}
+
+.lb2_view_btn {
+    grid-column: 8;
+    grid-row: 1;
+}
+.lb2_print_div {
+    grid-column: 9;
+    grid-row: 1;
+}
+
+.lb2_update_btn {
+    grid-column: 10;
+    grid-row: 1;
+}
+
+.lb2_delete_btn {
+    grid-column:11;
+    grid-row: 1;
+}
+
+.lb2_new_btn {
+    grid-column: 12;
+    grid-row: 1;
+}
+.lb2_trip_table_div {
+    grid-row: 2;
+    grid-column: 1/13;
+    border-style: solid;
+    border-width: thin;
+    border-color:lightgray;
+    overflow: auto;
+    width: 100%;
+    overflow-x: hidden;
+    padding:3px;
+    margin-top:2px;
+    border-radius:5px;
+    font-size:10px;
+}
+
+.lb2_trip_table {
+    width: 100%;
+}
+
+    .lb2_trip_table th, td {
+        padding: 10px;
+    }
+
+.lb2_id_column {
+    width: 9%;
+}
+
+.lb2_date_column {
+    width: 9%;
+}
+.lb2_destination_column {
+    width: 19%;
+}
+
+.lb2_token_no_column {
+    width: 9%;
+}
+
+.lb2_shortage_qty_column {
+    width: 9%;
+}
+
+.lb2_shortage_amount_column {
+    width: 9%;
+}
+
+.lb2_trip_advance_column {
+    width: 9%;
+}
+
+.lb2_wh_tax_column {
+    width: 8%;
+}
+
+.lb2_commission_column {
+    width: 8%;
+}
+
+.lb2_freight_column {
+    width: 8%;
+}
+
+.lb2_action_column {
+    width: 3%;
+}
+.lb2_div3 {
+    display: grid;
+    grid-row: 3;
+    grid-column: 1/13;
+    grid-template-columns: 60% 40%;
+    grid-template-rows: 100%;
+    color: #444;
+    margin-top: 5px;
+    border-style: solid;
+    border-width: thin;
+    border-radius: 5px;
+    border-color: lightgray;
+    overflow: auto;
+    max-width: 100%;
+    overflow-x: hidden;
+    padding: 5px;
+}
+
+.lb2_advance_table_div {
+    grid-column: 1;
+    grid-row: 1;
+    overflow: auto;
+    width: 100%;
+    font-size: 10px;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.lb2_advance_table {
+    width: 100%;
+}
+
+    .lb2_advance_table th, td {
+        padding: 10px;
+    }
+
+.lb2_advance_id_column {
+    width: 10%;
+}
+
+.lb2_advance_entry_date_column {
+    width: 15%;
+}
+
+.lb2_advance_description_column {
+    width: 45%;
+}
+
+.lb2_advance_debit_column {
+    width: 13%;
+}
+
+.lb2_advance_credit_column {
+    width: 13%;
+}
+
+.lb2_advance_action_column {
+    width: 4%;
+}
+.lb2_summary_table_div {
+    grid-column: 2;
+    grid-row: 1;
+    overflow: auto;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    margin-left: 2px;
+    font-size:10px;
+}
+
+.lb2_summary_table {
+    width: 100%;
+}
+
+    .lb2_summary_table th, td {
+        padding: 5px;
+    }
+
+.lb2_summary_amount_column {
+    width: 30%;
+}
+.lb2_summary_title_column {
+    width: 70%;
+}
+
+
+.lb2_view_ajax-loader {
+    grid-row: 1/4;
+    grid-column: 1/13;
+    visibility: hidden;
+}
+
+    .lb2_view_ajax-loader img {
+        position: relative;
+        top: 45%;
+        left: 45%;
+    }

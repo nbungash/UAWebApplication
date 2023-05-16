@@ -1,0 +1,90 @@
+﻿
+.shipping_main_div {
+    display: grid;
+    grid-template-columns: 20% 5% 20% 10% 10% 5% 10% 10% 10%;
+    grid-template-rows: 40px auto;
+    grid-gap: 2px;
+    font-family: Arial;
+    font-size: 12px;
+    margin-left: 20px;
+    margin-right: 35px;
+}
+
+.shipping_title_lbl {
+    grid-column: 1;
+    grid-row: 1;
+    font-family: Arial Black;
+    font-size: 20px;
+    text-align: left;
+    margin-left: 5px;
+}
+
+.shipping_company_lbl {
+    grid-column: 2;
+    grid-row: 1;
+    text-align: right;
+    margin-top: 10px;
+    margin-right: 5px;
+}
+
+.shipping_company_select {
+    grid-column: 3;
+    grid-row: 1;
+    margin-top: 5px;
+}
+.shipping_new_btn {
+    grid-column: 9;
+    grid-row: 1;
+    margin-top: 5px;
+}
+
+.shipping_table_div {
+    grid-column: 1/10;
+    grid-row: 2;
+    width: 100%;
+}
+
+#shipping_table {
+    
+    width: 100%;
+}
+
+    #shipping_table th, td {
+        padding: 10px;
+    }
+
+
+.shipping_id_column {
+    width: 10%;
+}
+
+.shipping_title_column {
+    width: 20%;
+}
+
+.shipping_title_urdu_column {
+    width: 20%;
+}
+
+.shipping_code_column {
+    width: 10%;
+}
+
+.shipping_company_column {
+    width: 20%;
+}
+
+.shipping_actions_column {
+    width: 20%;
+}
+.shipping_ajax-loader {
+    grid-row: 1/3;
+    grid-column: 1/10;
+    visibility: hidden;
+}
+
+    .shipping_ajax-loader img {
+        position: relative;
+        top: 45%;
+        left: 45%;
+    }

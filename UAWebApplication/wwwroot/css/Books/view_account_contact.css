@@ -1,0 +1,45 @@
+﻿
+.view_contact_main_div {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 100%;
+    grid-gap: 2px;
+    font-family: Arial;
+    font-size: 12px;
+}
+.view_contact_table_div {
+    grid-column: 1;
+    grid-row: 1;
+    width: 100%;
+}
+
+.view_contact_table {
+    width: 100%;
+}
+
+    .view_contact_table th, td {
+        padding: 10px;
+    }
+
+.view_contact_name_colmn {
+    width: 10%;
+}
+
+.view_contact_contact_column {
+    width: 10%;
+}
+
+.view_contact_action_column {
+    width: 20%;
+}
+.view_contact_ajax-loader {
+    grid-row: 1;
+    grid-column: 1;
+    visibility: hidden;
+}
+
+    .view_contact_ajax-loader img {
+        position: relative;
+        top: 45%;
+        left: 45%;
+    }

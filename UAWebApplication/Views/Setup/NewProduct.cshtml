@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "New Product";
+}
+
+<link rel="stylesheet" href="~/css/Setup/new_product.css" asp-append-version="true" />
+
+<form id="new_product_form" class="new_product_form" style="display:none;">
+    <div class="new_product_main_div">
+        <label class="new_product_company_lbl">Company : </label>
+        <select class="new_product_company_select"></select>
+        <label class="new_product_title_lbl">Title : </label>
+        <input class="new_product_title_txt"/>
+        <label class="new_product_title_urdu_lbl">Title Urdu : </label>
+        <input class="new_product_title_urdu_txt" />
+        <label class="new_product_code_lbl">Product Code : </label>
+        <input class="new_product_code_txt" />
+        <hr class="new_product_hr" />
+        <div class="new_product_btn_div">
+            <button class="new_product_save_btn ui-button ui-widget ui-widget-content ui-corner-all"
+                    type="button" tabindex="36">
+                Save <i class="fa fa-save"></i>
+            </button>
+        </div>
+        <div class="new_product_ajax-loader">
+            <img src="~/Images/ajax-loading.gif" height="80" width="80" class="img-responsive" />
+        </div>
+    </div>
+</form>

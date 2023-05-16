@@ -1,0 +1,133 @@
+﻿
+@{
+    ViewBag.Title = "Lorry Bill";
+}
+
+<link rel="stylesheet" href="~/css/LorryBill/lorry_bill.css" asp-append-version="true"/>
+
+<form method="post">
+    <div class="lb2_main_div">
+        <label class="lb2_title_lbl">Lorry Bill</label>
+        <label class="lb2_lorry_lbl">T/L : </label>
+        <select class="lb2_lorry_select"></select>
+        <label class="lb2_year_lbl">Year : </label>
+        <select class="lb2_year_select"></select>
+        <label class="lb2_bill_lbl">Bill : </label>
+        <select class="lb2_bill_select"></select>
+        <input class="lb2_view_btn ui-widget ui-widget-content ui-corner-all" type="button" value="View" />
+        @*<input class="lb2_print_btn ui-widget ui-widget-content ui-corner-all" type="button" value="Print" />*@
+        <div class="dropdown lb2_print_div">
+            <button class="btn dropdown-toggle  ui-button ui-widget ui-corner-all" type="button" id="dropdownMenu2"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                Print  Bill    <i class="fa fa-print"></i>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <li><button class="dropdown-item lb2_print_pdf_btn" type="button">PDF</button></li>
+                <li><button class="dropdown-item lb2_print_excel_btn" type="button">Excel</button></li>
+            </ul>
+        </div>
+        <input class="lb2_update_btn ui-widget ui-widget-content ui-corner-all" type="button" value="Update" />
+        <input class="lb2_delete_btn ui-widget ui-widget-content ui-corner-all" type="button" value="Delete" />
+        <input class="lb2_new_btn ui-widget ui-widget-content ui-corner-all" type="button" value="New" />
+        <div class="lb2_trip_table_div">
+            <table class="lb2_trip_table cell-border" id="lb2_trip_table">
+                <col class="lb2_id_column">
+                <col class="lb2_date_column">
+                <col class="lb2_destination_column">
+                <col class="lb2_token_no_column">
+                <col class="lb2_shortage_qty_column">
+                <col class="lb2_shortage_amount_column">
+                <col class="lb2_trip_advance_column">
+                <col class="lb2_wh_tax_column">
+                <col class="lb2_commission_column">
+                <col class="lb2_freight_column">
+                <col class="lb2_action_column">
+                <thead>
+                    <tr>
+                        <th style="text-align: center;padding:0px;">Id</th>
+                        <th style="text-align: center;padding:0px;">Date</th>
+                        <th style="text-align: center;padding:0px;">Station</th>
+                        <th style="text-align: center;padding:0px;">Token No</th>
+                        <th style="text-align: center;padding:0px;">Shortage</th>
+                        <th style="text-align: center;padding:0px;">Shortage Amt</th>
+                        <th style="text-align: center;padding:0px;">Trip Advance</th>
+                        <th style="text-align: center;padding:0px;">W/H Tax</th>
+                        <th style="text-align: center;padding:0px;">Comm</th>
+                        <th style="text-align: center;padding:0px;">Freight</th>
+                        <th style="text-align: center;padding:0px;"></th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot>
+                    <tr style="font-weight:bold;">
+                        <th colspan="5" style="text-align: right;padding:0px;">TOTAL</th>
+                        <th id="lb2_total_shortages" style="text-align: right;padding:0px;"></th>
+                        <th id="lb2_total_trip_advance" style="text-align: right;padding:0px;"></th>
+                        <th id="lb2_total_wh_tax" style="text-align: right;padding:0px;"></th>
+                        <th id="lb2_total_commission" style="text-align: right;padding:0px;"></th>
+                        <th id="lb2_total_freight" style="text-align: right;padding:0px;padding-right:20px;"></th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <div class="lb2_div3">
+            <div class="lb2_advance_table_div">
+                <table class="lb2_advance_table cell-border" id="lb2_advance_table">
+                    <col class="lb2_advance_id_column">
+                    <col class="lb2_advance_entry_date_column">
+                    <col class="lb2_advance_description_column">
+                    <col class="lb2_advance_debit_column">
+                    <col class="lb2_advance_credit_column">
+                    <col class="lb2_advance_action_column">
+                    <thead>
+                        <tr>
+                            <th style="text-align: center;padding:0px;">J Id</th>
+                            <th style="text-align: center;padding:0px;">Date</th>
+                            <th style="text-align: center;padding:0px;">Advance</th>
+                            <th style="text-align: center;padding:0px;">Debit</th>
+                            <th style="text-align: center;padding:0px;">Credit</th>
+                            <th style="text-align: center;padding:0px;"></th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                    <tfoot>
+                        <tr style="font-weight:bold;">
+                            <th colspan="3" style="text-align: right;padding:0px;">TOTAL</th>
+                            <th id="lb2_advance_total_debit" style="text-align: right;padding:0px;"></th>
+                            <th id="lb2_advance_total_credit" style="text-align: right;padding:0px;padding-right:20px;"></th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <div class="lb2_summary_table_div">
+                <table class="lb2_summary_table cell-border" id="lb2_summary_table">
+                    <col class="lb2_summary_amount_column">
+                    <col class="lb2_summary_title_column">
+                    <thead>
+                        <tr>
+                            <th style="text-align: center;padding:0px;"></th>
+                            <th style="text-align: center;padding:0px;">Summary</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+        <div class="lb2_view_ajax-loader">
+            <img src="~/images/ajax-loading.gif" height="100" width="100" class="img-responsive" />
+        </div>
+
+    </div>
+</form>
+
+<partial name="~/Views/LorryBill/NewLorryBill.cshtml" />
+<partial name="~/Views/Books/NewTrip.cshtml" />
+<partial name="~/Views/Books/NewTransaction.cshtml" />
+
+@section Scripts{
+    <script src="~/js/LorryBill/lorry_bill.js" asp-append-version="true"></script>
+    <script src="~/js/LorryBill/new_lorry_bill.js" asp-append-version="true"></script>
+    <script src="~/js/Books/new_trip.js" asp-append-version="true"></script>
+    <script src="~/js/Books/new_transaction.js" asp-append-version="true"></script>
+}

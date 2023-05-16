@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewBag.Title = "Recovery";
+}
+
+<link rel="stylesheet" href="~/Content/Billing/CompanyPayment/recovery.css" />
+<link rel="stylesheet" href="~/Content/Billing/CompanyPayment/recovery_update.css" />
+<script src="~/Scripts/Billing/CompanyPayment/recovery.js"></script>
+
+<form id="recovery_form" class="recovery_form" style="display:none;">
+    <div class="recovery_main_div">
+        <div class="recovery_row1_div">
+            <select class="recovery_group_select" id="recovery_group_select" tabindex="2"></select>
+            <select class="recovery_account_select" id="recovery_account_select" tabindex="3"></select>
+            <input class="recovery_description_txt" type="text" tabindex="4" />
+            <input class="recovery_amount_txt" type="text" tabindex="5" />
+            <input class="recovery_lorry_letter_txt" type="text" tabindex="6" />
+            <input class="recovery_lorry_digit_txt" type="text" tabindex="7" />
+            <select class="recovery_bill_month_select" id="recovery_bill_month_select" tabindex="8"></select>
+            <input class="recovery_delete_txt" type="text" tabindex="9" />
+        </div>
+        <div class="recovery_table_div">
+            <table class="recovery_table cell-border" id="recovery_table">
+                <col class="recovery_group_column">
+                <col class="recovery_account_column">
+                <col class="recovery_description_column">
+                <col class="recovery_amount_column">
+                <col class="recovery_lorry_column">
+                <col class="recovery_bill_month_column">
+                <col class="recovery_delete_column">
+                <thead>
+                    <tr>
+                        <th style="text-align: center;padding:9px;">Group</th>
+                        <th style="text-align: center;padding:9px;">Account</th>
+                        <th style="text-align: center;padding:9px;">Description</th>
+                        <th style="text-align: center;padding:9px;">Amount</th>
+                        <th style="text-align: center;padding:9px;">T/L</th>
+                        <th style="text-align: center;padding:9px;">Bill Month</th>
+                        <th style="text-align: center;padding:9px;">Remove</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <hr class="recovery_hr" />
+        <div class="recovery_btn_div">
+            <input class="recovery_save_btn" type="button" value="Save" tabindex="37" />
+            <input class="recovery_close_btn" type="button" value="Close" tabindex="38" />
+        </div>
+        <div class="recovery_save_ajax-loader">
+            <img src="~/Content/Images/ajax-loading.gif" height="80" width="80" class="img-responsive" />
+        </div>
+    </div>
+</form>
+
+
+<form id="recovery_update_form" class="recovery_update_form" style="display:none;">
+    <div class="rupdate_main_div">
+        <label class="rupdate_group_lbl">Group</label>
+        <select class="rupdate_group_select" id="rupdate_group_select"></select>
+        <label class="rupdate_account_lbl">Account</label>
+        <select class="rupdate_account_select" id="rupdate_account_select"></select>
+        <label class="rupdate_description_lbl">Description</label>
+        <input class="rupdate_description_txt" type="text" />
+        <label class="rupdate_amount_lbl">Amount</label>
+        <input class="rupdate_amount_txt" type="text" />
+        <label class="rupdate_lorry_lbl">T/L</label>
+        <div class="rupdate_lorry_div">
+            <input class="rupdate_lorry_letter_txt" type="text" />
+            <input class="rupdate_lorry_digit_txt" type="text" />
+        </div>
+        <label class="rupdate_bill_month_lbl">Lorry Bill</label>
+        <select class="rupdate_bill_month_select" id="rupdate_bill_month_select"></select>
+        <hr class="rupdate_hr" />
+        <div class="rupdate_btn_div">
+            <input class="rupdate_save_btn" type="button" value="Save" />
+            <input class="rupdate_close_btn" type="button" value="Close" />
+        </div>
+        <div class="rupdate_ajax-loader">
+            <img src="~/Content/Images/ajax-loading.gif" height="150" width="150"
+                 class="img-responsive" />
+        </div>
+
+    </div>
+</form>

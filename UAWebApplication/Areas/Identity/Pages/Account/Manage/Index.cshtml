@@ -1,0 +1,66 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Profile";
+    ViewData["ActivePage"] = ManageNavPages.Index;
+}
+
+<h3>@ViewData["Title"]</h3>
+<partial name="_StatusMessage" for="StatusMessage" />
+<div class="row">
+    <div class="col-md-6">
+        <form id="profile-form" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+            <div class="form-floating mb-3">
+                <input asp-for="Username" class="form-control" placeholder="Please choose your username." disabled />
+                <label asp-for="Username" class="form-label"></label>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.PhoneNumber" class="form-control" placeholder="Please enter your phone number."/>
+                <label asp-for="Input.PhoneNumber" class="form-label"></label>
+                <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.DisplayName" class="form-control" placeholder="Please enter your display name." />
+                <label asp-for="Input.DisplayName" class="form-label"></label>
+                <span asp-validation-for="Input.DisplayName" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <select id="profile_select" asp-for="Input.UserTheme" class="form-control">
+                    <option>base</option>
+                    <option>black-tie</option>
+                    <option>blitzer</option>
+                    <option>cupertino</option>
+                    <option>dark-hive</option>
+                    <option>dot-luv</option>
+                    <option>eggplant</option>
+                    <option>excite-bike</option>
+                    <option>flick</option>
+                    <option>hot-sneaks</option>
+                    <option>humanity</option>
+                    <option>le-frog</option>
+                    <option>mint-choc</option>
+                    <option>overcast</option>
+                    <option>pepper-grinder</option>
+                    <option>redmond</option>
+                    <option>smoothness</option>
+                    <option>south-street</option>
+                    <option>start</option>
+                    <option>sunny</option>
+                    <option>swanky-purse</option>
+                    <option>trontastic</option>
+                    <option>ui-darkness</option>
+                    <option>ui-lightness</option>
+                    <option>vader</option>
+                </select>
+                <label asp-for="Input.UserTheme" class="form-label"></label>
+                <span asp-validation-for="Input.UserTheme" class="text-danger"></span>
+            </div>
+            <button id="update-profile-button" type="submit" class="w-100 btn btn-lg btn-primary">Save</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

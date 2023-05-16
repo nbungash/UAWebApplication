@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "Users";
+}
+
+<link rel="stylesheet" href="~/css/Admin/user_management.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/Admin/new_user.css" asp-append-version="true" />
+
+<form method="post">
+    <div class="user_main_div">
+        <label class="user_title_lbl">User Mangement</label>
+        <button class="user_new_btn" type="button">New user</button>
+        <div class="user_table_div">
+            <table class="user_table cell-border display" id="user_table">
+                <col class="user_id_column">
+                <col class="user_name_column">
+                <col class="user_email_column">
+                <col class="user_activate_status_column">
+                <col class="user_activation_action_column">
+                <col class="user_update_column">
+                <thead>
+                    <tr>
+                        <th style="text-align: center;padding:9px;">Id</th>
+                        <th style="text-align: center;padding:9px;">User Id</th>
+                        <th style="text-align: center;padding:9px;">Email</th>
+                        <th style="text-align: center;padding:9px;">Status</th>
+                        <th style="text-align: center;padding:9px;">Action</th>
+                        <th style="text-align: center;padding:9px;"></th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</form>
+
+<form id="new_user_form" class="new_user_form" style="display:none;">
+    <div class="new_user_main_div">
+        <label class="new_user_name_lbl">User Id : </label>
+        <input class="new_user_name_txt" type="text" />
+        <label class="new_display_name_lbl">Display Name : </label>
+        <input class="new_display_name_txt" type="text" />
+        <label class="new_user_email_lbl">Email : </label>
+        <input class="new_user_email_txt" type="text" />
+        <hr class="new_user_hr" />
+        <div class="new_user_btn_div">
+            <button class="new_user_save_btn" type="button" tabindex="36">Save</button>
+        </div>
+        <div class="new_user_save_ajax-loader">
+            <img src="~/Images/ajax-loading.gif" height="80" width="80" class="img-responsive" />
+        </div>
+    </div>
+</form>
+
+<partial name="~/Views/Admin/UserRoles.cshtml" />
+
+ @section Scripts{
+    <script src="~/js/Admin/user_management.js" asp-append-version="true"></script>
+    <script src="~/js/Admin/new_user.js" asp-append-version="true"></script>
+    <script src="~/js/Admin/user_roles.js" asp-append-version="true"></script>
+}

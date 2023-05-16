@@ -1,0 +1,123 @@
+﻿
+.cash_book_main_div {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 40px auto;
+    grid-gap: 2px;
+    font-family: Arial;
+    font-size: 12px;
+    margin-left: 20px;
+    margin-right: 35px;
+}
+
+.cash_book_title_div {
+    grid-column: 1/3;
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: 14% 5% 14% 10% 10% 10% 10% 14% 13%;
+    grid-template-rows: 100%;
+    width: 100%;
+    font-size: 15px;
+    margin-top:5px;
+    margin-bottom:2px;
+    
+}
+.cash_book_title_lbl {
+    grid-column: 1;
+    grid-row: 1;
+    font-family: Arial Black;
+    font-size: 20px;
+}
+
+.cash_book_entry_date_lbl {
+    grid-column: 2;
+    grid-row: 1;
+    text-align: right;
+    margin-top: 10px;
+    margin-right: 5px;
+}
+
+.cash_book_entry_date_dp {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.cash_book_view_btn {
+    grid-column: 4;
+    grid-row: 1;
+}
+
+.cash_book_transaction_btn {
+    grid-column: 8;
+    grid-row: 1;
+}
+
+.cash_book_trip_btn {
+    grid-column: 9;
+    grid-row: 1;
+}
+
+.amdan_table_div {
+    grid-column: 1;
+    grid-row: 2;
+    width: 100%;
+}
+
+.amdan_table {
+    width: 100%;
+}
+
+    .amdan_table th, td {
+        padding: 10px;
+    }
+
+.amdan_account_column {
+    width: 35%;
+}
+.amdan_cheque_no_column {
+    width: 15%;
+}
+.amdan_description_column {
+    width: 35%;
+}
+.amdan_amount_column {
+    width: 15%;
+}
+
+.kharch_table_div {
+    grid-column: 2;
+    grid-row: 2;
+    width: 100%;
+}
+
+.kharch_table {
+    width: 100%;
+}
+
+    .kharch_table th, td {
+        padding: 10px;
+    }
+
+.kharch_account_column {
+    width: 43%;
+}
+
+.kharch_description_column {
+    width: 43%;
+}
+
+.kharch_amount_column {
+    width: 14%;
+}
+
+.cash_book_view_ajax-loader {
+    grid-row: 1/3;
+    grid-column: 1/3;
+    visibility: hidden;
+}
+
+    .cash_book_view_ajax-loader img {
+        position: relative;
+        top: 45%;
+        left: 45%;
+    }

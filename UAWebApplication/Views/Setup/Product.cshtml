@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Products";
+}
+
+<link rel="stylesheet" href="~/css/Setup/product.css" asp-append-version="true" />
+
+<form method="post">
+    <div class="product_main_div">
+        <label class="product_title_lbl">Trip Products</label>
+        <label class="product_company_lbl">Company : </label>
+        <select class="product_company_select" id="product_company_select"></select>
+        <button class="product_new_btn ui-button ui-widget ui-widget-content ui-corner-all" type="button">New <i class="fa fa-plus-circle"></i></button>
+        <div class="product_table_div">
+            <table class="product_table cell-border display" id="product_table">
+                <col class="product_id_column">
+                <col class="product_title_column">
+                <col class="product_title_urdu_column">
+                <col class="product_code_column">
+                <col class="product_company_column">
+                <col class="product_actions_column">
+                <thead>
+                    <tr>
+                        <th style="text-align: center;padding:9px;">Id</th>
+                        <th style="text-align: center;padding:9px;">Title</th>
+                        <th style="text-align: center;padding:9px;">Title Urdu</th>
+                        <th style="text-align: center;padding:9px;">Product Code</th>
+                        <th style="text-align: center;padding:9px;">Company</th>
+                        <th style="text-align: center;padding:9px;"></th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="product_ajax-loader">
+            <img src="~/Images/ajax-loading.gif" height="80" width="80" class="img-responsive" />
+        </div>
+    </div>
+</form>
+
+<partial name="~/Views/Setup/NewProduct.cshtml" />
+
+@section Scripts{
+    <script src="~/js/Setup/product.js" asp-append-version="true"></script>
+    <script src="~/js/Setup/new_product.js" asp-append-version="true"></script>
+}

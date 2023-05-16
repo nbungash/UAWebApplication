@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "Payment";
+}
+
+<link rel="stylesheet" href="~/css/CompanyPayment/company_payment.css" asp-append-version="true"/>
+
+<form method="post">
+    <div class="cp_main_div">
+        <label class="cp_title_lbl">Company Payments</label>
+        <label class="cp_company_lbl">Company : </label>
+        <select class="cp_company_select" tabindex="2"></select>
+        <label class="cp_year_lbl">Year : </label>
+        <select class="cp_year_select" tabindex="1"></select>
+        <input class="cp_view_btn" type="button" value="View" />
+        <input class="cp_new_btn" type="button" value="New Payment" />
+        <div class="cp_table_div">
+            <table class="cp_table cell-border" id="cp_table">
+                <col class="cp_check_column">
+                <col class="cp_id_column">
+                <col class="cp_payment_date_column">
+                <col class="cp_company_column">
+                <col class="cp_month_title_column">
+                <col class="cp_print_column">
+                <col class="cp_transactions_column">
+                <col class="cp_freight_column">
+                <col class="cp_shortages_column">
+                <col class="cp_actions_column">
+                <thead>
+                    <tr>
+                        <th style="text-align: center;padding:9px;"></th>
+                        <th style="text-align: center;padding:9px;">Id</th>
+                        <th style="text-align: center;padding:9px;">Date</th>
+                        <th style="text-align: center;padding:9px;">Company</th>
+                        <th style="text-align: center;padding:9px;">Month</th>
+                        <th style="text-align: center;padding:9px;">Print</th>
+                        <th style="text-align: center;padding:9px;">Transaction</th>
+                        <th style="text-align: center;padding:9px;">Trips</th>
+                        <th style="text-align: center;padding:9px;">Shortage</th>
+                        <th style="text-align: center;padding:9px;"></th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="cp_ajax-loader">
+            <img src="~/images/ajax-loading.gif" height="200" width="200" class="img-responsive" />
+        </div>
+
+    </div>
+</form>
+
+<partial name="~/Views/CompanyPayment/NewCompanyPayment.cshtml" />
+<partial name="~/Views/CompanyPayment/ViewFreight.cshtml" />
+<partial name="~/Views/CompanyPayment/ViewShortages.cshtml" />
+<partial name="~/Views/CompanyPayment/AttachTransactions.cshtml" />
+<partial name="~/Views/CompanyPayment/ViewTransactions.cshtml" />
+
+@section Scripts{
+    <script src="~/js/CompanyPayment/company_payment.js" asp-append-version="true"></script>
+    <script src="~/js/CompanyPayment/new_company_payment.js" asp-append-version="true"></script>
+    <script src="~/js/CompanyPayment/view_freight.js" asp-append-version="true"></script>
+    <script src="~/js/CompanyPayment/view_shortages.js" asp-append-version="true"></script>
+    <script src="~/js/CompanyPayment/attach_transactions.js" asp-append-version="true"></script>
+    <script src="~/js/CompanyPayment/view_transactions.js" asp-append-version="true"></script>
+}

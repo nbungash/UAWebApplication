@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "View Trips";
+}
+
+<link rel="stylesheet" href="~/css/CompanyPayment/view_transactions.css" asp-append-version="true"/>
+
+<form method="post" class="view_transactions_form" id="view_transactions_form" style="display:none;">
+    <div class="view_trans_main_div">
+        <input class="view_trans_save_btn" type="button" value="Save" />
+        <div class="view_trans_table_div">
+            <table class="view_trans_table cell-border" id="view_trans_table">
+                <col class="view_trans_check_column">
+                <col class="view_trans_journal_id_column">
+                <col class="view_trans_transaction_id_column">
+                <col class="view_trans_date_column">
+                <col class="view_trans_description_column">
+                <col class="view_trans_debit_column">
+                <col class="view_trans_credit_column">
+                <thead>
+                    <tr>
+                        <th style="text-align: center;padding:9px;"><input class="view_trans_all_check" id="view_trans_all_check" type="checkbox" /></th>
+                        <th style="text-align: center;padding:9px;">Journal Id</th>
+                        <th style="text-align: center;padding:9px;">Trans Id</th>
+                        <th style="text-align: center;padding:9px;">Date</th>
+                        <th style="text-align: center;padding:9px;">Description</th>
+                        <th style="text-align: center;padding:9px;">Debit</th>
+                        <th style="text-align: center;padding:9px;">Credit</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="view_trans_ajax-loader">
+            <img src="~/images/ajax-loading.gif" height="100" width="100" class="img-responsive" />
+        </div>
+
+    </div>
+</form>

@@ -1,0 +1,199 @@
+﻿
+.nsti_main_div {
+    display: grid;
+    grid-template-rows: 30px 30px 30px 30px 30px 2px 30px;
+    grid-template-columns: 100%;
+    grid-gap: 2px;
+    color: #444;
+    font-family: Arial;
+    font-size: 12px;
+}
+.nsti_first_row_div {
+    grid-column: 1;
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: 12% 25% 14% 22% 11% 16%;
+    grid-template-rows: 100%;
+    color: #444;
+    border-style: solid;
+    border-width: thin;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    width: 100%;
+}
+.nsti_invoice_date_lbl {
+    grid-column: 1;
+    grid-row: 1;
+    text-align: right;
+    margin-top: 7px;
+    margin-right: 5px;
+}
+
+.nsti_invoice_date_dp {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.nsti_shipping_lbl {
+    grid-column: 1;
+    grid-row: 2;
+    text-align: left;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+.nsti_shipping_div {
+    grid-column: 1;
+    grid-row: 3;
+    display: grid;
+    grid-template-columns: 10% 23% 12% 20% 9% 14% 12%;
+    grid-template-rows: 100%;
+    color: #444;
+    border-style: solid;
+    border-width: thin;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    width: 100%;
+}
+.nsti_shipping_province_lbl {
+    grid-column: 1;
+    grid-row: 1;
+    text-align: right;
+    margin-top: 7px;
+}
+.nsti_shipping_province_select {
+    grid-column: 2;
+    grid-row: 1;
+}
+.nsti_shipping_invoice_no_lbl {
+    grid-column: 3;
+    grid-row: 1;
+    text-align: right;
+    margin-top: 7px;
+}
+
+.nsti_shipping_invoice_no_txt {
+    grid-column: 4;
+    grid-row: 1;
+}
+.nsti_shipping_sales_tax_percentage_lbl {
+    grid-column: 5;
+    grid-row: 1;
+    text-align: right;
+    margin-top: 7px;
+}
+
+.nsti_shipping_sales_tax_percentage_txt {
+    grid-column: 6;
+    grid-row: 1;
+}
+.nsti_print_shipping_invoice_btn {
+    grid-column: 7;
+    grid-row: 1;
+}
+
+.nsti_destination_lbl {
+    grid-column: 1;
+    grid-row: 4;
+    text-align: left;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top:10px;
+}
+
+.nsti_destination_div {
+    grid-column: 1;
+    grid-row: 5;
+    display: grid;
+    grid-template-columns: 10% 23% 12% 20% 9% 14% 12%;
+    grid-template-rows: 100%;
+    color: #444;
+    border-style: solid;
+    border-width: thin;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    width: 100%;
+}
+
+.nsti_destination_province_lbl {
+    grid-column: 1;
+    grid-row: 1;
+    text-align: right;
+    margin-top: 7px;
+}
+
+.nsti_destination_province_select {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.nsti_destination_invoice_no_lbl {
+    grid-column: 3;
+    grid-row: 1;
+    text-align: right;
+    margin-top: 7px;
+}
+
+.nsti_destination_invoice_no_txt {
+    grid-column: 4;
+    grid-row: 1;
+}
+
+.nsti_destination_sales_tax_percentage_lbl {
+    grid-column: 5;
+    grid-row: 1;
+    text-align: right;
+    margin-top: 7px;
+}
+
+.nsti_destination_sales_tax_percentage_txt {
+    grid-column: 6;
+    grid-row: 1;
+}
+.nsti_print_destination_invoice_btn {
+    grid-column: 7;
+    grid-row: 1;
+}
+.nsti_hr {
+    grid-column: 1/7;
+    grid-row: 6;
+    padding: 0;
+    margin: 8px auto;
+    height: 0;
+    width: 100%;
+    max-height: 0;
+    font-size: 1px;
+    line-height: 0;
+    clear: both;
+    border: none;
+    border-top: 1px solid #aaaaaa;
+    border-bottom: 1px solid #ffffff;
+}
+.nsti_btn_div {
+    grid-column: 1/7;
+    grid-row: 7;
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 100%;
+    grid-gap: 2px;
+    margin-right: 10px;
+    margin-top: 10px;
+    min-height: 30px;
+}
+
+.nsti_save_btn {
+    grid-column: 5;
+    grid-row: 1;
+}
+
+.nsti_ajax-loader {
+    grid-row: 1/8;
+    grid-column: 1/7;
+    visibility: hidden;
+}
+
+    .nsti_ajax-loader img {
+        position: relative;
+        top: 45%;
+        left: 45%;
+    }

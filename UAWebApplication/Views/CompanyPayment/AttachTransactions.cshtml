@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Attach Transactions";
+}
+
+<link rel="stylesheet" href="~/css/CompanyPayment/attach_transactions.css" asp-append-version="true"/>
+
+<form method="post" class="attach_transactions_form" id="attach_transactions_form" style="display:none;">
+    <div class="attach_trans_main_div">
+        <label class="attach_trans_from_date_lbl">From Date : </label>
+        <input class="attach_trans_from_date_dp" type="date" />
+        <label class="attach_trans_to_date_lbl">To Date : </label>
+        <input class="attach_trans_to_date_dp" type="date" />
+        <input class="attach_trans_view_btn" type="button" value="View" />
+        <input class="attach_trans_save_btn" type="button" value="Save" />
+        <div class="attach_trans_table_div">
+            <table class="attach_trans_table cell-border" id="attach_trans_table">
+                <col class="attach_trans_check_column">
+                <col class="attach_trans_journal_id_column">
+                <col class="attach_trans_transaction_id_column">
+                <col class="attach_trans_date_column">
+                <col class="attach_trans_description_column">
+                <col class="attach_trans_debit_column">
+                <col class="attach_trans_credit_column">
+                <thead>
+                    <tr>
+                        <th style="text-align: center;padding:9px;"><input class="attach_trans_all_check" id="attach_trans_all_check" type="checkbox" /></th>
+                        <th style="text-align: center;padding:9px;">Journal Id</th>
+                        <th style="text-align: center;padding:9px;">Trans Id</th>
+                        <th style="text-align: center;padding:9px;">Date</th>
+                        <th style="text-align: center;padding:9px;">Description</th>
+                        <th style="text-align: center;padding:9px;">Debit</th>
+                        <th style="text-align: center;padding:9px;">Credit</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="attach_trans_ajax-loader">
+            <img src="~/images/ajax-loading.gif" height="100" width="100" class="img-responsive" />
+        </div>
+
+    </div>
+</form>

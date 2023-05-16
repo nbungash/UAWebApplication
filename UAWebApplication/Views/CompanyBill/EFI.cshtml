@@ -1,0 +1,84 @@
+﻿
+@{
+    ViewBag.Title = "EFI";
+}
+
+<link rel="stylesheet" href="~/css/CompanyBill/efi.css" asp-append-version="true" />
+
+<form method="post">
+    <div class="efi_main_div">
+        <label class="efi_title_lbl">EFI</label>
+        <div class="efi_pick_file_txt_div">
+            <input class="efi_pick_file_txt" type="file" id="FileUpload" />
+        </div>
+        <button class="efi_view_btn" type="button">View</button>
+        <label class="efi_company_lbl">Company</label>
+        <select class="efi_company_select" id="efi_company_select"></select>
+        <label class="efi_bill_date_lbl">Bill Date</label>
+        <input class="efi_bill_date_dp" type="date" />
+        <button class="efi_save_btn" type="button">Save</button>
+        <div class="efi_table_div">
+            <table class="efi_table cell-border" id="efi_table">
+                <col class="efi_id_column">
+                <col class="efi_entry_date_column">
+                <col class="efi_lorry_column">
+                <col class="efi_invoice_date_column">
+                <col class="efi_token_no_column">
+                <col class="efi_quantity_column">
+                <col class="efi_freight_column">
+                <col class="efi_short_qty_column">
+                <col class="efi_short_column">
+                <col class="efi_action_column">
+                <thead>
+                    <tr>
+                        <th style="text-align: center;padding:9px;">Id</th>
+                        <th style="text-align: center;padding:9px;">Entry Date</th>
+                        <th style="text-align: center;padding:9px;">Lorry</th>
+                        <th style="text-align: center;padding:9px;">Invoice Date</th>
+                        <th style="text-align: center;padding:9px;">Token No</th>
+                        <th style="text-align: center;padding:9px;">Quantity</th>
+                        <th style="text-align: center;padding:9px;">Freight</th>
+                        <th style="text-align: center;padding:9px;">Short Qty</th>
+                        <th style="text-align: center;padding:9px;">Short</th>
+                        <th style="text-align: center;padding:9px;">Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="efi_ajax-loader">
+            <img src="~/Images/ajax-loading.gif" class="img-responsive" />
+        </div>
+
+    </div>
+</form>
+
+<form id="view_history_form" class="view_history_form" style="display:none;">
+    <div class="view_history_main_div">
+        <div class="view_history_table_div">
+            <table class="view_history_table cell-border" id="view_history_table">
+                <col class="view_history_check_column">
+                <col class="view_history_id_column">
+                <col class="view_history_entry_date_column">
+                <col class="view_history_lorry_column">
+                <thead>
+                    <tr>
+                        <th style="text-align: center;padding:9px;">Check</th>
+                        <th style="text-align: center;padding:9px;">Id</th>
+                        <th style="text-align: center;padding:9px;">Entry Date</th>
+                        <th style="text-align: center;padding:9px;">Lorry</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="view_history_ajax-loader">
+            <img src="~/Images/ajax-loading.gif" class="img-responsive" />
+        </div>
+    </div>
+</form>
+
+
+@section Scripts{
+    <script src="~/js/CompanyBill/efi.js" asp-append-version="true"></script>
+}

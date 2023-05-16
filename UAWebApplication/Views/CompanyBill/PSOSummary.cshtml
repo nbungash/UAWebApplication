@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "PSO Summary";
+}
+
+<link rel="stylesheet" href="~/css/CompanyBill/psoSummary.css" asp-append-version="true" />
+
+<form method="post">
+    <div class="SalesTax_main_div">
+        <label id="summary_title_lbl">PSO Summary</label>
+        <label id="summary_year_lbl">Bill Year</label>
+        <select id="summary_year_combo_box" class="summary_year_combo_box">
+            <option>Select Year</option>
+        </select>
+        <label id="summary_BillDate_lbl">Bill Date</label>
+        <select id="summary_BillDate_combo_box" class="summary_BillDate_combo_box">
+            <option>Select Bill Date</option>
+        </select>
+        <input class="summary_view_by_type_btn ui-button ui-widget ui-corner-all" type="button" value="View Bills" />
+        <input class="summary_Print_btn ui-button ui-widget ui-corner-all" type="button" value="Print" />
+        <div class="summary_table_div">
+            <table class="summary_table cell-border display" id="summary_table">
+                <col class="summary_Sr" />
+                <col class="summary_billDate" />
+                <col class="summary_BillNo" />
+                <col class="summary_BillAmount" />
+                <col class="summary_extra" />
+                <thead>
+                    <tr>
+                        <th style="text-align: right">S No.</th>
+                        <th style="text-align: center">Bill Date</th>
+                        <th style="text-align: center">Bill No.</th>
+                        <th style="text-align: center">Bill Amount</th>
+                        <th style="text-align: center"></th>
+                    </tr>
+                </ thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="summary_View_ajax_loader">
+            <img src="~/images/ajax-loading.gif" height="150" width="150" class="img-responsive" />
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    <script src="~/js/CompanyBill/psoSummary.js" asp-append-version="true"></script>
+
+}

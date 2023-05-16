@@ -1,0 +1,147 @@
+﻿
+.provinces_main_div {
+    display: grid;
+    grid-template-columns: 10% 10% 20% 10% 10% 10% 10% 5% 5% 10%;
+    grid-template-rows: 40px auto;
+    grid-gap: 2px;
+    font-family: Arial;
+    font-size: 12px;
+    margin-left: 20px;
+    margin-right: 35px;
+}
+
+.provinces_title_lbl {
+    grid-column: 1;
+    grid-row: 1;
+    font-family: Arial Black;
+    font-size: 20px;
+    text-align: left;
+    margin-left: 5px;
+}
+
+.provinces_new_btn {
+    grid-column: 10;
+    grid-row: 1;
+    margin-top: 5px;
+}
+
+.provinces_table_div {
+    grid-column: 1/11;
+    grid-row: 2;
+    width: 100%;
+}
+
+.provinces_table {
+    width: 100%;
+}
+
+.provinces_table th, td {
+        padding: 10px;
+}
+
+.provinces_id_column {
+    width: 7%;
+}
+.provinces_name_column {
+    width: 15%;
+}
+
+.provinces_inter_province_column {
+    width: 16%;
+}
+.provinces_action_column {
+    width: 11%;
+}
+.provinces_extra_column {
+    width: 41%;
+}
+.provinces_ajax-loader {
+    grid-row: 1/5;
+    grid-column: 1/11;
+    visibility: hidden;
+}
+    .provinces_ajax-loader img {
+        position: relative;
+        top: 45%;
+        left: 45%;
+    }
+
+
+
+
+
+.np_main_div {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: 33% 33% 1% 33%;
+    grid-gap: 2px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-family: Arial;
+    font-size: 13px;
+}
+.np_name_lbl {
+    grid-column: 1;
+    grid-row: 1;
+    text-align: right;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+.np_name_txt {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.np_inter_province_lbl {
+    grid-column: 1;
+    grid-row: 2;
+    text-align: right;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+.np_inter_province_txt {
+    grid-column: 2;
+    grid-row: 2;
+}
+.np_hr {
+    grid-column: 1/3;
+    grid-row: 3;
+    padding: 0;
+    margin: 4px auto;
+    height: 0;
+    width: 100%;
+    max-height: 0;
+    font-size: 1px;
+    line-height: 0;
+    clear: both;
+    border: none;
+    border-top: 1px solid #aaaaaa;
+    border-bottom: 1px solid #ffffff;
+}
+
+.np_btn_div {
+    grid-column: 1/3;
+    grid-row: 4;
+    display: grid;
+    grid-template-columns: 40% 20% 20% 20%;
+    grid-template-rows: 100%;
+    grid-gap: 2px;
+    margin-right: 10px;
+}
+
+.np_save_btn {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.np_ajax-loader {
+    grid-row: 1/5;
+    grid-column: 1/3;
+    visibility: hidden;
+}
+
+    .np_ajax-loader img {
+        position: relative;
+        top: 45%;
+        left: 45%;
+    }

@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "New Shipping";
+}
+
+<link rel="stylesheet" href="~/css/Setup/new_shipping.css" asp-append-version="true" />
+
+<form id="new_shipping_form" class="new_shipping_form" style="display:none;">
+    <div class="new_shipping_main_div">
+        <label class="new_shipping_company_lbl">Company : </label>
+        <select class="new_shipping_company_select"></select>
+        <label class="new_shipping_title_lbl">Title : </label>
+        <input class="new_shipping_title_txt"/>
+        <label class="new_shipping_title_urdu_lbl">Title Urdu : </label>
+        <input class="new_shipping_title_urdu_txt" />
+        <label class="new_shipping_code_lbl">Code : </label>
+        <input class="new_shipping_code_txt" />
+        <hr class="new_shipping_hr" />
+        <div class="new_shipping_btn_div">
+            <button class="new_shipping_save_btn ui-button ui-widget ui-widget-content ui-corner-all"
+                    type="button" tabindex="36">
+                Save <i class="fa fa-save"></i>
+            </button>
+        </div>
+        <div class="new_shipping_ajax-loader">
+            <img src="~/Images/ajax-loading.gif" height="80" width="80" class="img-responsive" />
+        </div>
+    </div>
+</form>

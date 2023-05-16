@@ -1,0 +1,174 @@
+﻿
+.efi_main_div {
+    display: grid;
+    grid-template-columns: 10% 26% 10% 7% 19% 7% 10% 10%;
+    grid-template-rows: 35px auto;
+    gap: 2px;
+    font-family: Arial;
+    font-size: 12px;
+    margin-left: 20px;
+    margin-right: 35px;
+}
+
+.efi_title_lbl {
+    grid-column: 1;
+    grid-row: 1;
+    font-size: 20px;
+}
+
+.efi_pick_file_txt_div {
+    grid-column: 2;
+    grid-row: 1;
+    height: 100%;
+    max-height: 35px;
+    margin-top: 0px;
+}
+
+.efi_pick_file_txt {
+    /*max-height: 35px;*/
+    margin-top: 5px;
+    /*height: 30px;*/
+}
+
+.efi_view_btn {
+    grid-column: 3;
+    grid-row: 1;
+    max-height: 35px;
+    margin-top: 0px;
+}
+.efi_company_lbl {
+    grid-column: 4;
+    grid-row: 1;
+    margin-top:5px;
+    margin-right:5px;
+    text-align:right;
+}
+.efi_company_select {
+    grid-column: 5;
+    grid-row: 1;
+}
+.efi_bill_date_lbl {
+    grid-column: 6;
+    grid-row: 1;
+    margin-top: 5px;
+    margin-right: 5px;
+    text-align: right;
+}
+.efi_bill_date_dp {
+    grid-column: 7;
+    grid-row: 1;
+}
+.efi_save_btn {
+    grid-column: 8;
+    grid-row: 1;
+}
+.efi_table_div {
+    grid-column: 1/9;
+    grid-row: 2;
+    width: 100%;
+}
+
+.efi_table {
+    width: 100%;
+}
+
+    .efi_table th, td {
+        padding: 10px;
+    }
+.efi_id_column {
+    width: 6%;
+}
+
+.efi_entry_date_column {
+    width: 9%;
+}
+
+.efi_lorry_column {
+    width: 9%;
+}
+
+.efi_invoice_date_column {
+    width: 9%;
+}
+
+.efi_token_no_column {
+    width: 9%;
+}
+.efi_quantity_column {
+    width: 9%;
+}
+
+.efi_freight_column {
+    width: 9%;
+}
+
+.efi_short_qty_column {
+    width: 9%;
+}
+.efi_short_column {
+    width: 9%;
+}
+.efi_action_column {
+    width: 22%;
+}
+.efi_ajax-loader {
+    grid-row: 1/3;
+    grid-column: 1/9;
+    visibility: hidden;
+}
+    .efi_ajax-loader img {
+        position: relative;
+        top: 30%;
+        left: 45%;
+    }
+
+
+
+
+.view_history_main_div {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 100%;
+    gap: 2px;
+    font-family: Arial;
+    font-size: 12px;
+}
+.view_history_table_div {
+    grid-column: 1;
+    grid-row: 1;
+    width: 100%;
+}
+
+.view_history_table {
+    width: 100%;
+}
+
+    .view_history_table th, td {
+        padding: 10px;
+    }
+.view_history_check_column {
+    width: 5%;
+}
+.view_history_id_column {
+    width: 15%;
+}
+
+.view_history_entry_date_column {
+    width: 40%;
+}
+
+.view_history_lorry_column {
+    width: 40%;
+}
+.view_history_ajax-loader {
+    grid-row: 1;
+    grid-column: 1;
+    visibility: hidden;
+}
+
+    .view_history_ajax-loader img {
+        position: relative;
+        top: 30%;
+        left: 40%;
+    }
+

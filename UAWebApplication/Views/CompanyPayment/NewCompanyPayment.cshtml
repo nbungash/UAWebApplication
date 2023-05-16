@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Company Payment";
+}
+
+<link rel="stylesheet" href="~/css/CompanyPayment/new_company_payment.css" asp-append-version="true" />
+
+<form id="ncp_form" class="ncp_form" style="display:none;">
+    <div class="ncp_main_div">
+        <label class="ncp_company_lbl">Company : </label>
+        <select class="ncp_company_select" tabindex="1"></select>
+        <label class="ncp_payment_date_lbl">Payment Date : </label>
+        <input class="ncp_payment_date_dp" type="date" tabindex="2" />
+        <hr class="ncp_hr" />
+        <div class="ncp_btn_div">
+            <input class="ncp_save_btn" type="button" value="Save" tabindex="5" />
+        </div>
+        <div class="ncp_save_ajax-loader">
+            <img src="~/images/ajax-loading.gif" height="100" width="100" class="img-responsive" />
+        </div>
+    </div>
+</form>

@@ -1,0 +1,115 @@
+﻿
+.coa_main_div {
+    display: grid;
+    grid-template-columns: 10% 10% 10% 15% 5% 5% 10% 10% 15% 10%;
+    grid-template-rows: 40px auto;
+    grid-gap: 2px;
+    font-family: Arial;
+    font-size: 12px;
+    margin-left: 20px;
+    margin-right: 35px;
+}
+
+.coa_title_lbl {
+    grid-column: 1/3;
+    grid-row: 1;
+    font-family: Arial Black;
+    font-size: 20px;
+    text-align: left;
+    margin-left: 5px;
+}
+
+.coa_group_lbl {
+    grid-column: 3;
+    grid-row: 1;
+    text-align: right;
+    margin-top: 10px;
+    margin-right: 5px;
+}
+.coa_group_select {
+    grid-column: 4;
+    grid-row: 1;
+    margin-top: 5px;
+}
+.coa_active_lbl {
+    grid-column: 5;
+    grid-row: 1;
+    text-align: center;
+    margin-top: 10px;
+    margin-right: 5px;
+}
+.coa_active_check_div {
+    grid-column: 6;
+    grid-row: 1;
+    margin-top: 10px;
+}
+.coa_view_btn {
+    grid-column: 7;
+    grid-row: 1;
+    margin-top: 5px;
+}
+
+.coa_title_of_account_lbl {
+    grid-column: 8;
+    grid-row: 1;
+    text-align: right;
+    margin-top: 10px;
+    margin-right: 5px;
+
+}
+.coa_title_txt {
+    grid-column: 9;
+    grid-row: 1;
+    margin-top: 5px;
+    margin-right: 2px;
+}
+.coa_new_account_btn {
+    grid-column: 10;
+    grid-row: 1;
+    margin-top: 5px;
+}
+
+.coa_table_div {
+    grid-column: 1/11;
+    grid-row: 2;
+    width: 100%;
+}
+
+.coa_table {
+    width: 100%;
+}
+
+.coa_table th, td {
+        padding: 10px;
+}
+.coa_group_column {
+    width: 10%;
+}
+.coa_id_column {
+    width: 10%;
+}
+
+.coa_title_column {
+    width: 35%;
+}
+
+.coa_type_column {
+    width: 15%;
+}
+.coa_action_column {
+    width: 15%;
+}
+.coa_contact_column {
+    width: 15%;
+}
+.coa_ajax-loader {
+    grid-row: 1/3;
+    grid-column: 1/11;
+    visibility: hidden;
+}
+
+    .coa_ajax-loader img {
+        position: relative;
+        top: 45%;
+        left: 45%;
+    }

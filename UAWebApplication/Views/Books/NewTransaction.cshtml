@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "New Transaction";
+}
+
+<link rel="stylesheet" href="~/css/Books/new_transaction.css" asp-append-version="true" />
+
+<form id="new_transaction_form" class="new_transaction_form" style="display:none;">
+    <div class="new_transaction_main_div">
+        <label class="transaction_entry_date_lbl">Entry Date : </label>
+        <input class="transaction_entry_date_dp" type="date" />
+        <label class="transaction_credit_account_lbl">Account Credit : </label>
+        <select class="transaction_credit_account_group_select"></select>
+        <select class="transaction_credit_account_select"></select>
+        <label class="transaction_debit_account_lbl">Account Debit : </label>
+        <select class="transaction_debit_account_group_select"></select>
+        <select class="transaction_debit_account_select"></select>
+        <label class="transaction_description_lbl">Description : </label>
+        <input class="transaction_description_txt" type="text" />
+        <label class="transaction_voucher_no_lbl">Voucher No : </label>
+        <input class="transaction_voucher_no_txt" type="text" />
+        <label class="transaction_cheque_no_lbl">Cheque No : </label>
+        <input class="transaction_cheque_no_txt" type="text" />
+        <label class="transaction_amount_lbl">Amount : </label>
+        <input class="transaction_amount_txt" type="text" />
+        <label class="transaction_payee_lbl">Payee : </label>
+        <input class="transaction_payee_txt" type="text" />
+        <hr class="transaction_hr" />
+        <div class="transaction_btn_div">
+            <button class="transaction_save_btn" type="button" tabindex="17">Save <i class="fa fa-save"></i></button>
+        </div>
+        <div class="transaction_save_ajax-loader">
+            <img src="~/images/ajax-loading.gif" height="100" width="100" class="img-responsive" />
+        </div>
+    </div>
+</form>

@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "SALES TAX INVOICE";
+}
+
+<link rel="stylesheet" href="~/css/CompanyBill/new_sales_tax_invoice.css" asp-append-version="true"/>
+
+<form id="new_sales_tax_invoice_form" class="new_sales_tax_invoice_form" style="display:none;">
+    <div class="nsti_main_div">
+        <div class="nsti_first_row_div">
+            <label class="nsti_invoice_date_lbl">Invoice Date : </label>
+            <input class="nsti_invoice_date_dp" type="date" tabindex="5210" />
+        </div>
+        <label class="nsti_shipping_lbl">Shipping Invoice Details : </label>
+        <div class="nsti_shipping_div">
+            <label class="nsti_shipping_province_lbl">Province : </label>
+            <select class="nsti_shipping_province_select" tabindex="2"></select>
+            <label class="nsti_shipping_invoice_no_lbl">Invoice No : </label>
+            <input class="nsti_shipping_invoice_no_txt" type="text" tabindex="8" />
+            <label class="nsti_shipping_sales_tax_percentage_lbl">Sales Tax % : </label>
+            <input class="nsti_shipping_sales_tax_percentage_txt" type="text" tabindex="8" />
+            <input class="nsti_print_shipping_invoice_btn" type="button" value="Print" tabindex="11" />
+        </div>
+        <label class="nsti_destination_lbl">Destination Invoice Details : </label>
+        <div class="nsti_destination_div">
+            <label class="nsti_destination_province_lbl">Province: </label>
+            <select class="nsti_destination_province_select" tabindex="3"></select>
+            <label class="nsti_destination_invoice_no_lbl">Invoice No : </label>
+            <input class="nsti_destination_invoice_no_txt" type="text" tabindex="8" />
+            <label class="nsti_destination_sales_tax_percentage_lbl">Sales Tax % : </label>
+            <input class="nsti_destination_sales_tax_percentage_txt" type="text" tabindex="8" />
+            <input class="nsti_print_destination_invoice_btn" type="button" value="Print" tabindex="11" />
+        </div>
+        <hr class="nsti_hr" />
+        <div class="nsti_btn_div">
+            <input class="nsti_save_btn" id="nsti_save_btn" type="button" value="Save" tabindex="11" />
+        </div>
+        <div class="nsti_ajax-loader">
+            <img src="~/images/ajax-loading.gif" height="100" width="100" class="img-responsive" />
+        </div>
+    </div>
+</form>

@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "Provinces";
+}
+
+<link rel="stylesheet" href="~/css/Setup/provinces.css" asp-append-version="true"/>
+
+<form method="post">
+    <div class="provinces_main_div">
+        <label class="provinces_title_lbl">Provinces</label>
+        <button class="provinces_new_btn ui-button ui-widget ui-widget-content ui-corner-all" type="button">New <i class="fa fa-plus-circle"></i></button>
+        <div class="provinces_table_div">
+            <table class="provinces_table cell-border" id="provinces_table">
+                <col class="provinces_id_column">
+                <col class="provinces_name_column">
+                <col class="provinces_inter_province_column">
+                <col class="provinces_action_column">
+                <col class="provinces_extra_column">
+                <thead>
+                    <tr>
+                        <th style="text-align: center;padding:9px;">Id</th>
+                        <th style="text-align: center;padding:9px;">Name</th>
+                        <th style="text-align: center;padding:9px;">Inter Province Sales Tax %</th>
+                        <th style="text-align: center;padding:9px;">Actions</th>
+                        <th style="text-align: center;padding:9px;"></th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="provinces_ajax-loader">
+            <img src="~/images/ajax-loading.gif" height="100" width="100" class="img-responsive" />
+        </div>
+    </div>
+</form>
+
+<form id="np_form" class="np_form" style="display:none;">
+    <div class="np_main_div">
+        <label class="np_name_lbl">Province Name : </label>
+        <input class="np_name_txt" />
+        <label class="np_inter_province_lbl">Inter Province Sales Tax % : </label>
+        <input class="np_inter_province_txt" type="number"/>
+        <hr class="np_hr" />
+        <div class="np_btn_div">
+            <button class="np_save_btn ui-button ui-widget ui-widget-content ui-corner-all"
+            type="button" tabindex="36">Save <i class="fa fa-save"></i></button>
+        </div>
+        <div class="np_ajax-loader">
+            <img src="~/Images/ajax-loading.gif" height="80" width="80" class="img-responsive" />
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    <script src="~/js/Setup/provinces.js" asp-append-version="true"></script>
+}

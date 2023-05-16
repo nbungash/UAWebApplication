@@ -1,0 +1,104 @@
+﻿
+.new_destination_main_div {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: 20% 20% 20% 20% 1% 19%;
+    grid-gap: 2px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-family: Arial;
+    font-size: 13px;
+}
+
+.new_destination_company_lbl {
+    grid-column: 1;
+    grid-row: 1;
+    text-align: right;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
+.new_destination_company_select {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.new_destination_title_lbl {
+    grid-column: 1;
+    grid-row: 2;
+    text-align: right;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
+.new_destination_title_txt {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.new_destination_title_urdu_lbl {
+    grid-column: 1;
+    grid-row: 3;
+    text-align: right;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
+.new_destination_title_urdu_txt {
+    grid-column: 2;
+    grid-row: 3;
+}
+.new_destination_code_lbl {
+    grid-column: 1;
+    grid-row: 4;
+    text-align: right;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
+.new_destination_code_txt {
+    grid-column: 2;
+    grid-row: 4;
+}
+.new_destination_hr {
+    grid-column: 1/3;
+    grid-row: 5;
+    padding: 0;
+    margin: 4px auto;
+    height: 0;
+    width: 100%;
+    max-height: 0;
+    font-size: 1px;
+    line-height: 0;
+    clear: both;
+    border: none;
+    border-top: 1px solid #aaaaaa;
+    border-bottom: 1px solid #ffffff;
+}
+
+.new_destination_btn_div {
+    grid-column: 1/3;
+    grid-row: 6;
+    display: grid;
+    grid-template-columns: 40% 20% 20% 20%;
+    grid-template-rows: 100%;
+    grid-gap: 2px;
+    margin-right: 10px;
+}
+
+.new_destination_save_btn {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.new_destination_ajax-loader {
+    grid-row: 1/6;
+    grid-column: 1/3;
+    visibility: hidden;
+}
+
+    .new_destination_ajax-loader img {
+        position: relative;
+        top: 45%;
+        left: 45%;
+    }

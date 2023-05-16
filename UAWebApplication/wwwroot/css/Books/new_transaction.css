@@ -1,0 +1,152 @@
+﻿
+.new_transaction_main_div {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 13% 13% 12% 12% 12% 12% 12% 1% 12%;
+    grid-gap: 2px;
+    font-family: Arial;
+    font-size: 14px;
+}
+.transaction_entry_date_lbl {
+    grid-column: 1;
+    grid-row: 1;
+    text-align: right;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+.transaction_entry_date_dp {
+    grid-column: 2;
+    grid-row: 1;
+}
+.transaction_credit_account_lbl {
+    grid-column: 1;
+    grid-row: 2;
+    text-align: right;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+.transaction_credit_account_group_select {
+    grid-column: 2;
+    grid-row: 2;
+}
+.transaction_credit_account_select {
+    grid-column: 3/5;
+    grid-row: 2;
+}
+.transaction_debit_account_lbl {
+    grid-column: 1;
+    grid-row: 3;
+    text-align: right;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
+.transaction_debit_account_group_select {
+    grid-column: 2;
+    grid-row: 3;
+}
+
+.transaction_debit_account_select {
+    grid-column: 3/5;
+    grid-row: 3;
+}
+
+.transaction_description_lbl {
+    grid-column: 1;
+    grid-row: 4;
+    text-align: right;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+.transaction_description_txt {
+    grid-column: 2/5;
+    grid-row: 4;
+}
+.transaction_voucher_no_lbl {
+    grid-column: 1;
+    grid-row: 5;
+    text-align: right;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+.transaction_voucher_no_txt {
+    grid-column: 2;
+    grid-row: 5;
+}
+.transaction_cheque_no_lbl {
+    grid-column: 3;
+    grid-row: 5;
+    text-align: right;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
+.transaction_cheque_no_txt {
+    grid-column: 4;
+    grid-row: 5;
+}
+.transaction_amount_lbl {
+    grid-column: 1;
+    grid-row: 6;
+    text-align: right;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+.transaction_amount_txt {
+    grid-column: 2;
+    grid-row: 6;
+}
+.transaction_payee_lbl {
+    grid-column: 1;
+    grid-row: 7;
+    text-align: right;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
+.transaction_payee_txt {
+    grid-column: 2/5;
+    grid-row: 7;
+}
+
+.transaction_hr {
+    grid-column: 1/5;
+    grid-row: 8;
+    /*display: block;
+    position: relative;*/
+    padding: 0;
+    margin: 4px auto;
+    height: 0;
+    width: 100%;
+    max-height: 0;
+    font-size: 1px;
+    line-height: 0;
+    clear: both;
+    border: none;
+    border-top: 1px solid #aaaaaa;
+    border-bottom: 1px solid #ffffff;
+}
+.transaction_btn_div {
+    grid-column: 1/5;
+    grid-row: 9;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 100%;
+    grid-gap: 2px;
+    min-height:30px;
+    margin-top:5px;
+}
+.transaction_save_btn {
+    grid-column: 2;
+    grid-row: 1;
+}
+.transaction_save_ajax-loader {
+    grid-row: 1/10;
+    grid-column: 1/5;
+    visibility: hidden;
+}
+    .transaction_save_ajax-loader img {
+        position: relative;
+        top: 45%;
+        left: 45%;
+    }

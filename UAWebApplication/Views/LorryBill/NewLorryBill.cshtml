@@ -1,0 +1,112 @@
+﻿
+@{
+    ViewBag.Title = "New Lorry Bill";
+}
+
+<link rel="stylesheet" href="~/css/LorryBill/new_lorry_bill.css" asp-append-version="true"/>
+
+<form id="new_lorry_bill_form" class="new_lorry_bill_form" style="display:none;">
+    <div class="nlb_main_div">
+        <label class="nlb_lorry_lbl">T/L : </label>
+        <select class="nlb_lorry_select"></select>
+        <input class="nlb_view_btn" type="button" Value="View" tabindex="1" />
+        <label class="nlb_bill_date_lbl">Bill Date : </label>
+        <input class="nlb_bill_date_dp" type="date" tabindex="1" />
+        <label class="nlb_bill_bill_charges_lbl">Bill Charges : </label>
+        <input class="nlb_bill_charges_txt" type="text" tabindex="1" />
+        <input class="nlb_save_btn" type="button" Value="Save" tabindex="1" />
+        <div class="nlb_trip_table_div">
+            <table class="nlb_trip_table cell-border" id="nlb_trip_table">
+                <col class="nlb_check_column">
+                <col class="nlb_id_column">
+                <col class="nlb_date_column">
+                <col class="nlb_destination_column">
+                <col class="nlb_token_no_column">
+                <col class="nlb_shortage_qty_column">
+                <col class="nlb_shortage_amount_column">
+                <col class="nlb_trip_advance_column">
+                <col class="nlb_wh_tax_column">
+                <col class="nlb_commission_column">
+                <col class="nlb_freight_column">
+                <col class="nlb_action_column">
+                <thead>
+                    <tr>
+                        <th style="text-align: center;padding:0px;"><input id="nlb_trip_all_check" type="checkbox" /></th>
+                        <th style="text-align: center;padding:0px;">Id</th>
+                        <th style="text-align: center;padding:0px;">Date</th>
+                        <th style="text-align: center;padding:0px;">Station</th>
+                        <th style="text-align: center;padding:0px;">Token No</th>
+                        <th style="text-align: center;padding:0px;">Shortage</th>
+                        <th style="text-align: center;padding:0px;">Shortage Amt</th>
+                        <th style="text-align: center;padding:0px;">Trip Advance</th>
+                        <th style="text-align: center;padding:0px;">W/H Tax</th>
+                        <th style="text-align: center;padding:0px;">Comm</th>
+                        <th style="text-align: center;padding:0px;">Freight</th>
+                        <th style="text-align: center;padding:0px;"></th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot>
+                    <tr style="font-weight:bold;">
+                        <th colspan="5" style="text-align: right;padding:0px;">TOTAL</th>
+                        <th id="nlb_total_shortages" style="text-align: right;padding:0px;"></th>
+                        <th id="nlb_total_trip_advance" style="text-align: right;padding:0px;"></th>
+                        <th id="nlb_total_wh_tax" style="text-align: right;padding:0px;"></th>
+                        <th id="nlb_total_commission" style="text-align: right;padding:0px;"></th>
+                        <th id="nlb_total_freight" style="text-align: right;padding:0px;padding-right:20px;"></th>
+                        <th></th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <div class="nlb_div3">
+            <div class="nlb_advance_table_div">
+                <table class="nlb_advance_table cell-border" id="nlb_advance_table">
+                    <col class="nlb_advance_check_column">
+                    <col class="nlb_advance_id_column">
+                    <col class="nlb_advance_entry_date_column">
+                    <col class="nlb_advance_description_column">
+                    <col class="nlb_advance_debit_column">
+                    <col class="nlb_advance_credit_column">
+                    <col class="nlb_advance_action_column">
+                    <thead>
+                        <tr>
+                            <th style="text-align: center;padding:0px;"><input id="nlb_advance_all_check" type="checkbox" /></th>
+                            <th style="text-align: center;padding:0px;">J Id</th>
+                            <th style="text-align: center;padding:0px;">Date</th>
+                            <th style="text-align: center;padding:0px;">Advance</th>
+                            <th style="text-align: center;padding:0px;">Debit</th>
+                            <th style="text-align: center;padding:0px;">Credit</th>
+                            <th style="text-align: center;padding:0px;"></th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                    <tfoot>
+                        <tr style="font-weight:bold;">
+                            <th colspan="4" style="text-align: right;padding:0px;">TOTAL</th>
+                            <th id="nlb_advance_total_debit" style="text-align: right;padding:0px;"></th>
+                            <th id="nlb_advance_total_credit" style="text-align: right;padding:0px;padding-right:20px;"></th>
+                            <th></th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <div class="nlb_summary_table_div">
+                <table class="nlb_summary_table cell-border" id="nlb_summary_table">
+                    <col class="nlb_summary_title_column">
+                    <col class="nlb_summary_amount_column">
+                    <thead>
+                        <tr>
+                            <th style="text-align: center;padding:0px;">Summary</th>
+                            <th style="text-align: center;padding:0px;"></th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+        <div class="nlb_ajax-loader">
+            <img src="~/images/ajax-loading.gif" height="150" width="150" class="img-responsive" />
+        </div>
+    </div>
+</form>

@@ -1,0 +1,92 @@
+﻿@{
+    ViewBag.Title = "PSO Summary";
+}
+
+<link rel="stylesheet" href="~/css//CompanyBill/salesTax_Summary.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/CompanyBill/summary_salesTax_search.css" asp-append-version="true"/>
+
+
+<form method="post">
+    <div class="SalesTax_main_div">
+        <label id="sts_title_lbl">SalesTax Summary</label>
+        <label id="sts_year_lbl">Year</label>
+        <select id="sts_year_combo_box" class="sts_year_combo_box">
+            <option>Select Year</option>
+        </select>
+        <label id="sts_BillDate_lbl">Bill Date</label>
+        <select id="sts_BillDate_combo_box" class="sts_BillDate_combo_box">
+            <option>Select Bill Date</option>
+        </select>
+        <input class="sts_view_by_type_btn ui-button ui-widget ui-corner-all" type="button" value="" />
+        <input class="sts_Search_btn ui-button ui-widget ui-corner-all" type="button" value="Search" />
+        <input class="sts_Print_btn ui-button ui-widget ui-corner-all" type="button" value="Print" />
+        
+
+
+        <div class="sts_table_div">
+            <table class="sts_table cell-border display" id="sts_table">
+                <col class="sts_Sr" />
+                <col class="sts_billDate" />
+                <col class="sts_BillNo" />
+                <col class="sts_InvoiceNo" />
+                <col class="sts_FromToProvince" />
+                <col class="sts_InvoiceProvince" />
+                <col class="sts_BillAmount" />
+                <col class="sts_SalesTax_Amount" />
+                <col class="sts_action"/>
+                <thead>
+                    <tr>
+                        <th style="text-align: right">Sno.</th>
+                        <th style="text-align: center">Bill Date</th>
+                        <th style="text-align: center">BillNo.</th>
+                        <th style="text-align: center">Invoice No.</th>
+                        <th style="text-align: center">From To Province</th>
+                        <th style="text-align: center">Invoice Province</th>
+                        <th style="text-align: center">Bill Amount</th>
+                        <th style="text-align: center">SalesTax Amount</th>
+                        <th style="text-align: center"></th>
+                    </tr>
+                </ thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="sts_View_ajax_loader">
+            <img src="~/images/ajax-loading.gif" height="150" width="150" class="img-responsive" />
+        </div>
+    </div>
+</form>
+
+
+<form method="post" id="sts_search_form" class="sts_search_form" style="display:none">
+    <div class="sts_search_search_form_div">
+        <div class="search_ToFrom_div">
+            <label class="sts_search_fromdate_lbl">From Date</label>
+            <input class="sts_search_fromdate_dte" type="date" />
+
+            <label class="sts_search_todate_lbl">To Date</label>
+            <input class="sts_search_todate_dte" type="date" />
+
+            <input type="button" class="sts_search_fromtodate_btn ui-button ui-widget ui-corner-all" value="Search" />
+        </div>
+
+        <div class="search_DateInvoice_div">
+            <label class="sts_search_date_lbl">InvoiceDate</label>
+            <input class="sts_search_date_txt" type="date" />
+            <input type="button" class="sts_search_date_btn ui-button ui-widget ui-corner-all" value="Search" />
+
+            <label class="sts_search_InvoiceNo_lbl">Invoice No.</label>
+            <input class="sts_search_InvoiceNo_txt" type="text" />
+            <input type="button" class="sts_search_InvoiceNo_btn ui-button ui-widget ui-corner-all" value="Search" />
+        </div>
+        <div class="div_divider"></div>
+        <div class="sts_search_form_ajax_loader">
+            <img src="~/Images/ajax-loading.gif" height="80" width="80" class="img-responsive" />
+        </div>
+    </div>
+</form>
+
+
+@section Scripts{
+    <script src="~/js/CompanyBill/salesTax_Summary.js" asp-append-version="true"></script>
+
+}

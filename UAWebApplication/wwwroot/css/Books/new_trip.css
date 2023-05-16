@@ -1,0 +1,343 @@
+﻿
+.new_trip_main_div {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 5% 37% 5% 36% 1% 6%;
+    grid-gap: 2px;
+    font-family: Arial;
+    font-size: 14px;
+}
+
+.nt_trip_detail_lbl {
+    grid-column: 1;
+    grid-row: 1;
+    text-align: left;
+    margin-top: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.nt_trip_detail_div {
+    grid-column: 1;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: 18% 30% 22% 15% 15%;
+    grid-template-rows: 15% 15% 14% 14% 14% 14% 14%;
+    color: #444;
+    border-style: solid;
+    border-width: thin;
+    padding: 2px;
+    width: 100%;
+}
+.nt_company_lbl {
+    grid-column: 1;
+    grid-row: 1;
+    text-align: right;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+.nt_company_select {
+    grid-column: 2;
+    grid-row: 1;
+}
+.nt_entry_date_lbl {
+    grid-column: 1;
+    grid-row: 2;
+    text-align: right;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+.nt_entry_date_dp {
+    grid-column: 2;
+    grid-row: 2;
+    margin-right:100px;
+}
+.nt_lorry_lbl {
+    grid-column: 1;
+    grid-row: 3;
+    text-align: right;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+.nt_lorry_select {
+    grid-column: 2;
+    grid-row: 3;
+    margin-right: 100px;
+}
+.nt_shipping_lbl {
+    grid-column: 1;
+    grid-row: 4;
+    text-align: right;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+.nt_shipping_select {
+    grid-column: 2;
+    grid-row: 4;
+}
+.nt_destination_lbl {
+    grid-column: 1;
+    grid-row: 5;
+    text-align: right;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+.nt_destination_select {
+    grid-column: 2;
+    grid-row: 5;
+}
+.nt_product_lbl {
+    grid-column: 1;
+    grid-row: 6;
+    text-align: right;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+.nt_product_select {
+    grid-column: 2;
+    grid-row: 6;
+    margin-right: 100px;
+}
+.nt_munshiana_lbl {
+    grid-column: 1;
+    grid-row: 7;
+    text-align: right;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+.nt_munshiana_txt {
+    grid-column: 2;
+    grid-row: 7;
+    margin-right: 100px;
+}
+
+.nt_invoice_date_lbl {
+    grid-column: 3;
+    grid-row: 1;
+    text-align: right;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+.nt_invoice_date_dp {
+    grid-column: 4;
+    grid-row: 1;
+}
+.nt_token_no_lbl {
+    grid-column: 3;
+    grid-row: 2;
+    text-align: right;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+.nt_token_no_txt {
+    grid-column: 4;
+    grid-row: 2;
+}
+.nt_quantity_lbl {
+    grid-column: 3;
+    grid-row: 3;
+    text-align: right;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+.nt_quantity_txt {
+    grid-column: 4;
+    grid-row: 3;
+}
+.nt_freight_lbl {
+    grid-column: 3;
+    grid-row: 4;
+    text-align: right;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+.nt_freight_txt {
+    grid-column: 4;
+    grid-row: 4;
+}
+.nt_tax_percentage_lbl {
+    grid-column: 3;
+    grid-row: 5;
+    text-align: right;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
+.nt_tax_percentage_txt {
+    grid-column: 4;
+    grid-row: 5;
+}
+
+.nt_tax_amount_txt {
+    grid-column: 5;
+    grid-row: 5;
+}
+.nt_commission_percentage_lbl {
+    grid-column: 3;
+    grid-row: 6;
+    text-align: right;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
+.nt_commission_percentage_txt {
+    grid-column: 4;
+    grid-row: 6;
+}
+
+.nt_commission_amount_txt {
+    grid-column: 5;
+    grid-row: 6;
+}
+.nt_shortage_qty_lbl {
+    grid-column: 3;
+    grid-row: 7;
+    text-align: right;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
+.nt_shortage_qty_txt {
+    grid-column: 4;
+    grid-row: 7;
+}
+
+.nt_shortage_amount_txt {
+    grid-column: 5;
+    grid-row: 7;
+}
+
+.nt_trip_advance_detail_lbl {
+    grid-column: 1;
+    grid-row: 3;
+    text-align: left;
+    margin-top: 5px;
+    font-size: 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.nt_trip_advance_detail_div {
+    grid-column: 1;
+    grid-row: 4;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 35px 150px;
+    color: #444;
+    border-style: solid;
+    border-width: thin;
+    padding:2px;
+    width: 100%;
+}
+
+.nt_first_row_div {
+    grid-column: 1;
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: 10% 15% 30% 25% 10% 10%;
+    grid-template-rows: 100%;
+    color: #444;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    width: 100%;
+}
+
+.nt_date_dp {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.nt_account_group_select {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.nt_account_select {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.nt_description_txt {
+    grid-column: 4;
+    grid-row: 1;
+}
+
+.nt_amount_txt {
+    grid-column: 5;
+    grid-row: 1;
+}
+
+.nt_cheque_no_txt {
+    grid-column: 6;
+    grid-row: 1;
+}
+.nt_advance_table_div {
+    grid-column: 1;
+    grid-row: 2;
+    width: 100%;
+}
+
+.nt_advance_table {
+    width: 100%;
+}
+
+    .nt_advance_table th, td {
+        padding: 10px;
+    }
+
+.nt_date_column {
+    width: 10%;
+}
+.nt_account_group_column {
+    width: 15%;
+}
+.nt_account_column {
+    width: 30%;
+}
+.nt_description_column {
+    width: 25%;
+}
+.nt_amount_column {
+    width: 10%;
+}
+.nt_cheque_no_column {
+    width: 10%;
+}
+.nt_hr {
+    grid-column: 1;
+    grid-row: 5;
+    /*display: block;
+    position: relative;*/
+    padding: 0;
+    margin: 4px auto;
+    height: 0;
+    width: 100%;
+    max-height: 0;
+    font-size: 1px;
+    line-height: 0;
+    clear: both;
+    border: none;
+    border-top: 1px solid #aaaaaa;
+    border-bottom: 1px solid #ffffff;
+}
+.nt_btn_div {
+    grid-column: 1;
+    grid-row: 6;
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 100%;
+    grid-gap: 2px;
+}
+.nt_save_btn {
+    grid-column: 1;
+    grid-row: 1;
+}
+.nt_save_ajax-loader {
+    grid-row: 1/7;
+    grid-column: 1;
+    visibility: hidden;
+}
+    .nt_save_ajax-loader img {
+        position: relative;
+        top: 45%;
+        left: 45%;
+    }

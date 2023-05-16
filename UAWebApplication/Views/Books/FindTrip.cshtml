@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "Find Trip";
+}
+
+<link rel="stylesheet" href="~/css/Books/find_trip.css" asp-append-version="true" />
+
+<form id="find_trip_form" class="find_trip_form" style="display:none;">
+    <div class="find_trip_main_div">
+        <div class="ft_div1">
+            <label class="ft_company_lbl">Company : </label>
+            <select class="ft_company_select"></select>
+            <label class="ft_shipping_lbl">Shipping : </label>
+            <select class="ft_shipping_select"></select>
+            <label class="ft_destination_lbl">Destianation : </label>
+            <select class="ft_destination_select"></select>
+            <label class="ft_product_lbl">Product : </label>
+            <select class="ft_product_select" id="ft_product_select"></select>
+            <label class="ft_lorry_lbl">T/L : </label>
+            <select class="ft_lorry_select"></select>
+            <label class="ft_date_criteria_lbl">Date Criteria : </label>
+            <select class="ft_date_criteria_select">
+                <option value="1">Entry Date</option>
+                <option value="2">Invoice Date</option>
+            </select>
+            <label class="ft_from_lbl">Date From : </label>
+            <input class="ft_from_dp" type="date" />
+            <label class="ft_to_lbl">To</label>
+            <input class="ft_to_dp" type="date" />
+            <input class="ft_view_btn" type="button" value="View" />
+        </div>
+        <div class="ft_div2">
+            <label class="ft_trip_id_lbl">Trip Id : </label>
+            <input class="ft_trip_id_txt" type="text" />
+            <input class="ft_trip_id_btn" type="button" value="Find" />
+
+            <label class="ft_invoice_no_lbl">Token No : </label>
+            <input class="ft_invoice_no_txt" type="text" />
+            <input class="ft_invoice_no_btn" type="button" value="Find" />
+
+        </div>
+        <div class="ft_ajax-loader">
+            <img src="~/images/ajax-loading.gif" height="150" width="150" class="img-responsive" />
+        </div>
+
+    </div>
+</form>

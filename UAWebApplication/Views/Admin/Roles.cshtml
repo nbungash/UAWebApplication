@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Roles";
+}
+
+<link rel="stylesheet" href="~/css/Admin/roles.css" asp-append-version="true" />
+
+<form method="post">
+    <div class="roles_main_div">
+        <label class="roles_title_lbl">Roles</label>
+        <label class="roles_page_lbl">Resource : </label>
+        <select class="roles_page_select" id="roles_page_select"></select>
+        <button class="roles_view_btn" type="button">View</button>
+        <div class="roles_view_ajax-loader">
+            <img src="~/Images/ajax-loading.gif" height="80" width="80" class="img-responsive" />
+        </div>
+        <button class="roles_new_btn" type="button">New Role</button>
+        <div class="roles_table_div">
+            <table class="roles_table cell-border display" id="roles_table">
+                <col class="roles_id_column">
+                <col class="roles_name_column">
+                <col class="roles_action_column">
+                <col class="roles_extra_column">
+                <thead>
+                    <tr>
+                        <th style="text-align: center;padding:9px;">Id</th>
+                        <th style="text-align: center;padding:9px;">Role Name</th>
+                        <th style="text-align: center;padding:9px;">Action</th>
+                        <th style="text-align: center;padding:9px;"></th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</form>
+
+<partial name="~/Views/Admin/NewRole.cshtml" />
+
+@section Scripts{
+    <script src="~/js/Admin/roles.js" asp-append-version="true"></script>
+    <script src="~/js/Admin/new_role.js" asp-append-version="true"></script>
+}

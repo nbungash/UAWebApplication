@@ -1,0 +1,99 @@
+﻿
+@{
+    ViewBag.Title = "General Journal";
+}
+
+<link rel="stylesheet" href="~/css/Books/general_journal.css" asp-append-version="true"/>
+<link rel="stylesheet" href="~/css/Books/find_journal.css" asp-append-version="true"/>
+
+<form method="post">
+    <div class="j_main_div" id="j_main_div">
+        <label class="j_title_lbl" id="j_title_lbl">General Journal</label>
+        <label class="j_date_filter_lbl" id="j_date_filter_lbl">Date Filter</label>
+        <select class="j_date_filter_select">
+            <option value="1">Entry Date</option>
+            <option value="2">Transaction Date</option>
+        </select>
+        <label class="j_from_lbl" id="j_from_lbl">From</label>
+        <input class="j_from_dp" id="j_from_dp" type="date" />
+        <label class="j_to_lbl" id="j_to_lbl">To</label>
+        <input class="j_to_dp" id="j_to_dp" type="date" />
+        <input class="j_filter_btn" id="j_filter_btn" type="button" value="Filter" />
+        <input class="j_find_btn" id="j_find_btn" type="button" value="Search" />
+        <div class="j_table_div" id="j_table_div">
+            <table class="j_table1 cell-border display" id="j_table1">
+                <col class="j_transactionid_column">
+                <col class="j_entry_date_column">
+                <col class="j_account_column">
+                <col class="j_description_column">
+                <col class="j_debit_column">
+                <col class="j_credit_column">
+                <col class="j_cheque_column">
+                <col class="j_actions_column">
+                <thead>
+                    <tr>
+                        <th style="text-align: center;padding:9px;">Trans Id</th>
+                        <th style="text-align: center;padding:9px;">Entry Date</th>
+                        <th style="text-align: center;padding:9px;">Account</th>
+                        <th style="text-align: center;padding:9px;">Description</th>
+                        <th style="text-align: center;padding:9px;">Debit</th>
+                        <th style="text-align: center;padding:9px;">Credit</th>
+                        <th style="text-align: center;padding:9px;">Cheque No</th>
+                        <th style="text-align: center;padding:9px;"></th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="j_filter_ajax-loader">
+            <img src="~/images/ajax-loading.gif" height="100" width="100" class="img-responsive" />
+        </div>
+    </div>
+</form>
+
+<form id="find_journal_form" class="find_journal_form" style="display:none;">
+    <div class="find_journal_main_div">
+        <div class="fj_div1">
+            <label class="fj_group_lbl">Group : </label>
+            <select class="fj_group_select"></select>
+            <label class="fj_account_lbl">Account : </label>
+            <select class="fj_account_select"></select>
+            <label class="fj_from_lbl">Date From : </label>
+            <input class="fj_from_dp" type="date" />
+            <label class="fj_to_lbl">Date To : </label>
+            <input class="fj_to_dp" type="date" />
+            <input class="fj_find_by_account_btn" type="button" value="View" />
+            
+        </div>
+        <div class="fj_div2">
+            <label class="fj_transaction_id_lbl">Transaction Id : </label>
+            <input class="fj_transaction_id_txt" type="text" />
+            <input class="fj_transaction_id_btn" type="button" value="View" />
+
+            <label class="fj_voucher_no_lbl">Voucher No : </label>
+            <input class="fj_voucher_no_txt" type="text" />
+            <input class="fj_voucher_no_btn" type="button" value="View" />
+
+            <label class="fj_cheque_no_lbl">Cheque No : </label>
+            <input class="fj_cheque_no_txt" type="text" />
+            <input class="fj_cheque_no_btn" type="button" value="View" />
+
+            <label class="fj_trip_id_lbl">Trip Id : </label>
+            <input class="fj_trip_id_txt" type="text" />
+            <input class="fj_trip_id_btn" type="button" value="View" />
+        </div>
+        <div class="fj_ajax-loader">
+            <img src="~/images/ajax-loading.gif" height="100" width="100" class="img-responsive" />
+        </div>
+    </div>
+</form>
+
+<partial name="~/Views/Books/NewTrip.cshtml" />
+<partial name="~/Views/Books/NewTransaction.cshtml" />
+
+@section Scripts{
+    <script src="~/js/Books/general_journal.js" asp-append-version="true"></script>
+    <script src="~/js/Books/transaction_actions.js" asp-append-version="true"></script>
+    <script src="~/js/Books/new_trip.js" asp-append-version="true"></script>
+    <script src="~/js/Books/new_transaction.js" asp-append-version="true"></script>
+}

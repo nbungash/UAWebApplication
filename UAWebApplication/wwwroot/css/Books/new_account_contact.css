@@ -1,0 +1,80 @@
+﻿
+.contact_main_div {
+    display: grid;
+    grid-template-columns: 35% 65%;
+    grid-template-rows: 33% 33% 1% 33%;
+    grid-gap: 2px;
+    font-family: Arial;
+    font-size: 15px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.contact_name_lbl {
+    grid-column: 1;
+    grid-row: 1;
+    text-align: right;
+    margin-right: 5px;
+    margin-top:5px;
+}
+
+.contact_contact_no_lbl {
+    grid-column: 1;
+    grid-row: 2;
+    text-align: right;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
+.contact_name_txt {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.contact_contact_no_txt {
+    grid-column: 2;
+    grid-row: 2;
+}
+.contact_hr {
+    grid-column: 1/3;
+    grid-row: 3;
+    /*display: block;
+    position: relative;*/
+    padding: 0;
+    margin: 4px auto;
+    height: 0;
+    width: 100%;
+    max-height: 0;
+    font-size: 1px;
+    line-height: 0;
+    clear: both;
+    border: none;
+    border-top: 1px solid #aaaaaa;
+    border-bottom: 1px solid #ffffff;
+}
+
+.contact_btn_div {
+    grid-column: 1/3;
+    grid-row: 4;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 100%;
+    grid-gap: 2px;
+}
+
+.contact_save_btn {
+    grid-column: 4;
+    grid-row: 1;
+}
+
+.contact_save_ajax-loader {
+    grid-row: 1/5;
+    grid-column: 1/3;
+    visibility: hidden;
+}
+
+    .contact_save_ajax-loader img {
+        position: relative;
+        top: 45%;
+        left: 45%;
+    }

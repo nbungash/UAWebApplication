@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "General Ledger";
+}
+
+<link rel="stylesheet" href="~/css/Books/general_ledger.css" asp-append-version="true"/>
+
+<form method="post">
+    <div class="ledger_main_div">
+        <div class="ledger_frist_row_div">
+            <label class="ledger_title_lbl">GENERAL LEDGER</label>
+            <label class="ledger_account_lbl">Account </label>
+            <select class="ledger_group_select"></select>
+            <select class="ledger_account_select"></select>
+            <label class="ledger_date_from_lbl">Date From </label>
+            <input class="ledger_date_from_dp" type="date" />
+            <label class="ledger_date_to_lbl">To </label>
+            <input class="ledger_date_to_dp" type="date" />
+            <input class="ledger_view_btn ui-button ui-widget ui-corner-all" type="button" value="View" />
+            <input class="ledger_print_btn ui-button ui-widget ui-corner-all" type="button" value="Print" />
+        </div>
+        <div class="ledger_table_div" id="ledger_table_div">
+            <table class="ledger_table cell-border" id="ledger_table">
+                <col class="ledger_entry_date_column">
+                <col class="ledger_description_column">
+                <col class="ledger_lorry_column">
+                <col class="ledger_cheque_column">
+                <col class="ledger_voucher_column">
+                <col class="ledger_debit_column">
+                <col class="ledger_credit_column">
+                <col class="ledger_balance_column">
+                <col class="ledger_drcr_column">
+                <thead>
+                    <tr>
+                        <th style="text-align: center;padding:9px;">Entry Date</th>
+                        <th style="text-align: center;padding:9px;">Description</th>
+                        <th style="text-align: center;padding:9px;">T/L</th>
+                        <th style="text-align: center;padding:9px;">Cheque No</th>
+                        <th style="text-align: center;padding:9px;">Voucher</th>
+                        <th style="text-align: center;padding:9px;">Debit</th>
+                        <th style="text-align: center;padding:9px;">Credit</th>
+                        <th style="text-align: center;padding:9px;">Balance</th>
+                        <th style="text-align: center;padding:9px;">Dr/Cr</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="ledger_ajax-loader">
+            <img src="~/images/ajax-loading.gif" height="100" width="100" class="img-responsive" />
+        </div>
+    </div>
+
+</form>
+
+@section Scripts{
+    <script src="~/js/Books/general_ledger.js" asp-append-version="true"></script>
+}
+
+
