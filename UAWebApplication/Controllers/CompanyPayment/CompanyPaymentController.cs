@@ -8,11 +8,14 @@ using iText.Layout.Borders;
 using iText.Layout.Element;
 using iText.Layout.Properties;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
+using OfficeOpenXml.FormulaParsing.Excel.Functions.Finance;
 using UAWebApplication.Data;
 using UAWebApplication.Models;
+using static iText.StyledXmlParser.Jsoup.Select.Evaluator;
 
 namespace UAWebApplication.Controllers
 {
@@ -142,6 +145,185 @@ namespace UAWebApplication.Controllers
             public string? CompanyTitle { get; set; }
             public string? MonthTitle { get; set; }
             public string? Finalized { get; set; }
+        }
+
+        //Finalize Company Payment
+        public class FinalizeParam
+        {
+            public int? CompanyPaymentId { get; set; }
+            public bool IsFinalized { get; set; }
+        }
+        [Authorize(Roles = "DEVELOPER,ADMINISTRATOR,COMPANY_PAYMENT_FINALIZE")]
+        public async Task<ActionResult> Finalize([FromBody]FinalizeParam p2)
+        {
+            FinalizeReturn obj = new FinalizeReturn();
+            try
+            {
+                _context.Database.SetCommandTimeout(300);
+                PsosummaryTable? cpt = await _context.PsosummaryTables
+                    .Where(p => p.Id == p2.CompanyPaymentId).FirstOrDefaultAsync();
+                if (cpt == null)
+                {
+                    throw new Exception("Oops! Company Payment Not found.");
+                }
+                string? companyTitle = await _context.AccountTables.Where(p => p.AccountId == cpt.CompanyId)
+                    .Select(p => p.Title).FirstOrDefaultAsync();
+                if (p2.IsFinalized == true)
+                {
+                    cpt.IsFinalized = true;
+                    //Shortage Transactions
+                    long? transactionid = await _context.JournalTables.MaxAsync(p => p.TransId) + 1;
+                    List<TripTable> shortage_list =await _context.TripTables
+                        .Where(p => p.SummaryShortId == cpt.Id).ToListAsync();
+                    List<long?> lorry_list = shortage_list.Select(p => p.Lorry).AsEnumerable().Distinct().ToList();
+                    decimal? total_short_amount = 0;
+                    foreach (var lorry in lorry_list)
+                    {
+                        decimal? shortage_amount = shortage_list.Where(p => p.Lorry == lorry)
+                            .Sum(p => p.ShortAmount).GetValueOrDefault(0);
+                        if (shortage_amount > 0)
+                        {
+                            JournalTable obj1 = new JournalTable();
+                            obj1.EntryDate = cpt.SummaryDate;
+                            obj1.TransId = transactionid;
+                            obj1.EntryType = "COMPANY PAYMENT";
+                            obj1.TransactionDate = DateTime.Now;
+                            obj1.AccountId =lorry;
+                            obj1.Credit = null;
+                            obj1.Debit = shortage_amount;
+                            total_short_amount += shortage_amount.GetValueOrDefault(0);
+                            obj1.Description = string.Format("SHORTAGE OF {0} PAYMENT SUMMARY NO : {1} DATE: {2:dd-MM-yyyy}",
+                                companyTitle, cpt.Id, cpt.SummaryDate);
+                            //obj1.UserId = UserManager.FindByName(User.Identity.Name).Id;
+                            obj1.SummaryId = p2.CompanyPaymentId;
+                            _context.JournalTables.Add(obj1);
+                        }
+                    }
+                    if (total_short_amount != 0)
+                    {
+                        JournalTable total_short_amount_obj = new JournalTable();
+                        total_short_amount_obj.EntryDate = cpt.SummaryDate;
+                        total_short_amount_obj.TransId = transactionid;
+                        total_short_amount_obj.EntryType = "COMPANY PAYMENT";
+                        total_short_amount_obj.TransactionDate = DateTime.Now;
+                        total_short_amount_obj.AccountId =cpt.CompanyId;
+                        total_short_amount_obj.Credit = total_short_amount;
+                        total_short_amount_obj.Debit = null;
+                        total_short_amount_obj.Description = string.Format("SHORTAGE OF {0} PAYMENT SUMMARY NO : {1} DATE: {2:dd-MM-yyyy}",
+                            companyTitle, cpt.Id, cpt.SummaryDate);
+                        //total_short_amount_obj.UserId = UserManager.FindByName(User.Identity.Name).Id;
+                        total_short_amount_obj.SummaryId = p2.CompanyPaymentId;
+                        _context.JournalTables.Add(total_short_amount_obj);
+                    }
+                    await _context.SaveChangesAsync();
+                    obj.Message = "OK";
+                }
+                else
+                {
+                    cpt.IsFinalized = false;
+                    List<JournalTable> jt_list = await _context.JournalTables
+                        .Where(p => p.SummaryId == cpt.Id && p.EntryType == "COMPANY PAYMENT").ToListAsync();
+                    foreach (var item in jt_list)
+                    {
+                        _context.JournalTables.Remove(item);
+                    }
+                    await _context.SaveChangesAsync();
+                    obj.Message = "OK";
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex.InnerException != null)
+                {
+                    if (ex.InnerException.InnerException != null)
+                    {
+                        obj.Message = string.Format("{0}", ex.InnerException.InnerException.Message);
+                    }
+                    else
+                    {
+                        obj.Message = string.Format("{0}", ex.InnerException.Message);
+                    }
+                }
+                else
+                {
+                    obj.Message = string.Format("{0}", ex.Message);
+                }
+            }
+            string json = JsonConvert.SerializeObject(obj);
+            return Json(json);
+        }
+        public class FinalizeReturn
+        {
+            public string Message { get; set; }
+        }
+
+        //Delete Company Payment
+        public class CompanyPaymentDeleteParam
+        {
+            public int? CompanyPaymentId { get; set; }
+        }
+        [Authorize(Roles = "DEVELOPER,ADMINISTRATOR,COMPANY_PAYMENT_DELETE")]
+        public async Task<IActionResult> CompanyPaymentDelete([FromBody] CompanyPaymentDeleteParam p1)
+        {
+            CompanyPaymentDeleteReturn obj_return = new CompanyPaymentDeleteReturn();
+            try
+            {
+                PsosummaryTable? cpt = await _context.PsosummaryTables
+                    .Where(p => p.Id == p1.CompanyPaymentId).FirstOrDefaultAsync();
+                if (cpt == null)
+                {
+                    throw new Exception("Oops! Company Payment not found.");
+                }
+                if (cpt.IsFinalized == true)
+                {
+                    throw new Exception("Oops! Deletion Failed.\nSummary is Finalized.");
+                }
+                int trips_attached_count = await _context.TripTables.Where(p => p.SummaryId == p1.CompanyPaymentId ||
+                    p.SummaryShortId == p1.CompanyPaymentId).CountAsync();
+                if (trips_attached_count != 0)
+                {
+                    throw new Exception("Oops! Deletion Failed.\nTrips are attached with Summary.");
+                }
+                int journals_attached_count = await _context.JournalTables
+                    .Where(p => p.SummaryId == p1.CompanyPaymentId && p.EntryType != "COMPANY PAYMENT").CountAsync();
+                if (journals_attached_count != 0)
+                {
+                    throw new Exception("Oops! Deletion Failed.\nRecords are attached with Summary.");
+                }
+                List<JournalTable> journals_to_delete = await _context.JournalTables
+                    .Where(p => p.SummaryId == p1.CompanyPaymentId && p.EntryType == "COMPANY PAYMENT").ToListAsync();
+                foreach (var journals in journals_to_delete)
+                {
+                    _context.JournalTables.Remove(journals);
+                }
+                _context.PsosummaryTables.Remove(cpt);
+                await _context.SaveChangesAsync();
+                obj_return.Message = "OK";
+            }
+            catch (Exception ex)
+            {
+                if (ex.InnerException != null)
+                {
+                    if (ex.InnerException.InnerException != null)
+                    {
+                        obj_return.Message = string.Format("{0}", ex.InnerException.InnerException.Message);
+                    }
+                    else
+                    {
+                        obj_return.Message = string.Format("{0}", ex.InnerException.Message);
+                    }
+                }
+                else
+                {
+                    obj_return.Message = string.Format("{0}", ex.Message);
+                }
+            }
+            string json = JsonConvert.SerializeObject(obj_return);
+            return Json(json);
+        }
+        public class CompanyPaymentDeleteReturn
+        {
+            public string? Message { get; set; }
         }
 
         //Trips
@@ -459,8 +641,10 @@ namespace UAWebApplication.Controllers
                 {
                     throw new Exception("Oops! Payment not found.");
                 }
-                List<JournalTable> list1 = await _context.JournalTables.Where(p => p.SummaryId == null && p.AccountId == pbt.CompanyId &&
-                    p.EntryDate >= p1.FromDate && p.EntryDate <= p1.ToDate).OrderBy(p => p.EntryDate).ToListAsync();
+                List<JournalTable> list1 = await _context.JournalTables.Where(p => p.SummaryId == null &&
+                    p.AccountId == pbt.CompanyId && p.EntryDate >= p1.FromDate && p.EntryDate <= p1.ToDate &&
+                    p.EntryType != "PARTY BILL" && p.EntryType != "COMPANY PAYMENT")
+                    .OrderBy(p => p.EntryDate).ToListAsync();
                 foreach (var item in list1)
                 {
                     obj_return.TransactionList.Add(new JournalDto(_context, item,false));
@@ -519,6 +703,7 @@ namespace UAWebApplication.Controllers
                 this.Debit = tt.Debit;
                 this.Description = tt.Description;
                 this.EntryDate = tt.EntryDate;
+                this.CompanyPaymentType = tt.CompanyPaymentType;
             }
             public string? IsChecked { get; set; }
             public string? AccountTitle { get; set; }
@@ -552,6 +737,7 @@ namespace UAWebApplication.Controllers
                         {
                             throw new Exception(string.Format("Oops! Record bearing Id {0} not found", j.Id));
                         }
+                        tt.CompanyPaymentType = j.CompanyPaymentType;
                         tt.SummaryId = pbt.Id;
                     }
                 }
@@ -677,6 +863,7 @@ namespace UAWebApplication.Controllers
                             throw new Exception(string.Format("Oops! Record bearing Id {0} not found", j.Id));
                         }
                         tt.SummaryId = pbt.Id;
+                        tt.CompanyPaymentType = j.CompanyPaymentType;
                     }
                 }
                 await _context.SaveChangesAsync();

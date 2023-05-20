@@ -48,6 +48,7 @@ public partial class JournalTable
     public long? PumpTransId { get; set; }
 
     public decimal? Quanitity { get; set; }
+    public string? CompanyPaymentType { get; set; }
 
     public virtual AccountTable? Account { get; set; }
 

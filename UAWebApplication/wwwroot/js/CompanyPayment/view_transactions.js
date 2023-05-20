@@ -30,6 +30,9 @@ $(document).ready(function () {
                 if (ii === 1) {
                     xyz["Id"] = $(this).text();
                 }
+                if (ii === 7) {
+                    xyz["CompanyPaymentType"] = parseInt($(this).find('select').val());
+                }
             });
             if (check1 === true) {
                 transactionList.push(xyz);
@@ -86,6 +89,10 @@ function PopulateViewTransactionTable(TransactionList) {
             <td style="text-align: left;padding:5px;" >' + item.Description + '</td>\
             <td style="text-align: right;padding:5px;">' + ((item.Debit === null) ? "" : item.Debit) + '</td>\
             <td style="text-align: right;padding:5px;">' + ((item.Credit === null) ? "" : item.Credit) + '</td>\
+            <td style="text-align: center;padding:5px;">\
+                <select class="view_trans_type_select" value="'+ item.CompanyPaymentType +'">\
+                <option>Select...</option><option>W/H Tax</option><option>Sales Tax</option><option>Penalty</option>\
+                <option>Deduction</option><option>Recovery</option></select></td>\
             </tr>');
         table.row.add(row);
     });

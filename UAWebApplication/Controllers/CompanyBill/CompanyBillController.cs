@@ -694,8 +694,8 @@ namespace UAWebApplication.Controllers
                 else
                 {
                     pbt.IsFinalized = false;
-                    List<JournalTable> jt_list = await _context.JournalTables.Where(p => p.PartyBillId == pbt.Id && p.EntryType == "PARTY BILL")
-                        .ToListAsync();
+                    List<JournalTable> jt_list = await _context.JournalTables.Where(p => p.PartyBillId == pbt.Id &&
+                        p.EntryType == "PARTY BILL").ToListAsync();
                     foreach (var item in jt_list)
                     {
                         _context.JournalTables.Remove(item);
