@@ -1,4 +1,5 @@
 ﻿
+using FastReport.Web;
 using iText.IO.Font.Constants;
 using iText.Kernel.Colors;
 using iText.Kernel.Events;
@@ -15,8 +16,11 @@ using Newtonsoft.Json;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
 using Org.BouncyCastle.Asn1.Esf;
+using System.Data;
 using UAWebApplication.Data;
 using UAWebApplication.Models;
+using FastReport.Export.PdfSimple;
+using System.Composition;
 
 namespace UAWebApplication.Controllers
 {
@@ -24,9 +28,11 @@ namespace UAWebApplication.Controllers
     public class LorryBillController : Controller
     {
         private readonly UADbContext _context;
-        public LorryBillController(UADbContext context)
+        private readonly Microsoft.AspNetCore.Hosting.IHostingEnvironment _hostingEnvironment;
+        public LorryBillController(UADbContext context, Microsoft.AspNetCore.Hosting.IHostingEnvironment hostingEnvironment)
         {
             _context = context;
+            _hostingEnvironment = hostingEnvironment;
         }
 
         [Authorize(Roles = "DEVELOPER,ADMINISTRATOR,LORRY_BILL_VIEW")]
@@ -906,6 +912,86 @@ namespace UAWebApplication.Controllers
             }
             return ConvertedDate;
         }
+
+        public class LorryBillPrintParam
+        {
+            public LorryBillPrintParam()
+            {
+                TripList = new List<LorryTripClass>();
+                AdvanceList = new List<JournalClass>();
+                SummaryList = new List<LorryBillSummaryDto>();
+            }
+            public long? LorryBillId { get; set; }
+            public long? LorryId { get; set; }
+            public List<LorryTripClass> TripList { get; set; }
+            public List<JournalClass> AdvanceList { get; set; }
+
+            public List<LorryBillSummaryDto> SummaryList { get; set; }
+        }
+        public IActionResult LorryBillPrint([FromBody] LorryBillPrintParam p1)
+        {
+            LorryBillInExcellReturn obj_return = new LorryBillInExcellReturn();
+            try
+            {
+                LorryBillTable? lbt = _context.LorryBillTables.Where(p => p.BillNo == p1.LorryBillId).FirstOrDefault();
+                if (lbt == null)
+                {
+                    throw new Exception("Oops! Lorry Bill not found.");
+                }
+                AccountTable? account = _context.AccountTables.Where(p => p.AccountId == lbt.Lorry).FirstOrDefault();
+                LorryTable? lorry = _context.LorryTables.Where(p => p.AccountId == lbt.Lorry).FirstOrDefault();
+
+                var webReport = GetReport();
+                webReport.Report.Prepare();
+
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    PDFSimpleExport pdfExport = new PDFSimpleExport();
+                    pdfExport.Export(webReport.Report, ms);
+                    ms.Flush();
+                    obj_return.Content = System.Convert.ToBase64String(ms.ToArray());
+                }
+                obj_return.Message = "OK";
+            }
+            catch (Exception ex)
+            {
+                if (ex.InnerException != null)
+                {
+                    if (ex.InnerException.InnerException != null)
+                    {
+                        obj_return.Message = string.Format("{0}", ex.InnerException.InnerException.Message);
+                    }
+                    else
+                    {
+                        obj_return.Message = string.Format("{0}", ex.InnerException.Message);
+                    }
+                }
+                else
+                {
+                    obj_return.Message = string.Format("{0}", ex.Message);
+                }
+            }
+            string json = JsonConvert.SerializeObject(obj_return);
+            return Json(json);
+        }
+        public class LorryBillPrintReturn
+        {
+            public string? Message { get; set; }
+            public string? Content { get; set; }
+        }
+
+        public WebReport GetReport()
+        {
+            string webRootPath = _hostingEnvironment.WebRootPath; // Get the path to the wwwroot folder
+            WebReport webReport = new WebReport(); // Create a Web Report Object
+            webReport.Report.Load(webRootPath + "/reports/lorryBill.frx"); // Load the report into the WebReport object
+            //var dataSet = new DataSet(); // Create a data source
+            //dataSet.ReadXml(webRootPath + "/reports/nwind.xml"); // Open the xml database
+            //webReport.Report.RegisterData(dataSet, "NorthWind"); // Register the data source in the report
+            return webReport;
+        }
+
+
 
     }
 }

@@ -394,6 +394,176 @@ $(document).ready(function () {
             });
         }
     });
+
+    $('.lb2_print_pdf_btn').on('click', function () {
+        var error = false;
+        var lorry = $('.lb2_lorry_select').val();
+        if (lorry === null || lorry === "" || lorry == 0) {
+            ShowInformationDialog('Error', "Lorry Missing");
+            error = true;
+        }
+        var billId = $('.lb2_bill_select').val();
+        if (billId === null || billId === "" || billId == 0) {
+            ShowInformationDialog('Error', "Bill Id Missing");
+            error = true;
+        }
+
+        var tripList = [];
+        $("#lb2_trip_table > tbody > tr").each(function (i, v) {
+            var xyz = {};
+            $(this).children('td').each(function (ii, vv) {
+                if (ii === 0) {
+                    let text = $(this).text();
+                    if (text != null && text != "null" && text != "") {
+                        xyz["TripID"] = text;
+                    }
+                }
+                else if (ii === 1) {
+                    xyz["EntryDateString"] = $(this).text();
+                }
+                else if (ii === 2) {
+                    let text = $(this).text();
+                    if (text != null && text != "null" && text != "") {
+                        xyz["DestinationTitle"] = text;
+                    }
+                }
+                else if (ii === 3) {
+                    let text = $(this).text();
+                    if (text != null && text != "null" && text != "") {
+                        xyz["TokenNo"] = parseInt(text);
+                    }
+                }
+                else if (ii === 4) {
+                    let text = $(this).text();
+                    if (text != null && text != "null" && text != "") {
+                        xyz["ShortQty"] = parseFloat(text);
+                    }
+                }
+                else if (ii === 5) {
+                    let text = $(this).text();
+                    if (text != null && text != "null" && text != "") {
+                        xyz["ShortAmount"] = parseFloat(text);
+                    }
+                }
+                else if (ii === 6) {
+                    let text = $(this).text();
+                    if (text != null && text != "null" && text != "") {
+                        xyz["TripAdvance"] = parseFloat(text);
+                    }
+                }
+                else if (ii === 7) {
+                    let text = $(this).text();
+                    if (text != null && text != "null" && text != "") {
+                        xyz["Tax"] = parseFloat(text);
+                    }
+                }
+                else if (ii === 8) {
+                    let text = $(this).text();
+                    if (text != null && text != "null" && text != "") {
+                        xyz["Commission"] = parseFloat(text);
+                    }
+                }
+                else if (ii === 9) {
+                    let text = $(this).text();
+                    if (text != null && text != "null" && text != "") {
+                        xyz["Freight"] = parseFloat(text);
+                    }
+                }
+            });
+            tripList.push(xyz);
+        });
+
+        var advanceList = [];
+        $("#lb2_advance_table > tbody > tr").each(function (i, v) {
+            var xyz = {};
+            $(this).children('td').each(function (ii, vv) {
+                if (ii === 0) {
+                    let text = $(this).text();
+                    if (text != null && text != "null" && text != "") {
+                        xyz["Id"] = text;
+                    }
+                }
+                else if (ii === 1) {
+                    xyz["EntryDateString"] = $(this).text();
+                }
+                else if (ii === 2) {
+                    let text = $(this).text();
+                    if (text != null && text != "null" && text != "") {
+                        xyz["Description"] = text;
+                    }
+                }
+                else if (ii === 3) {
+                    let text = $(this).text();
+                    if (text != null && text != "null" && text != "") {
+                        xyz["Debit"] = parseFloat(text);
+                    }
+                }
+                else if (ii === 4) {
+                    let text = $(this).text();
+                    if (text != null && text != "null" && text != "") {
+                        xyz["Credit"] = parseFloat(text);
+                    }
+                }
+            });
+            advanceList.push(xyz);
+        });
+
+        var summaryList = [];
+        $("#lb2_summary_table > tbody > tr").each(function (i, v) {
+            var xyz = {};
+            $(this).children('td').each(function (ii, vv) {
+                if (ii === 0) {
+                    let text = $(this).text();
+                    if (text != null && text != "null" && text != "") {
+                        xyz["Amount"] = parseFloat(text);
+                    }
+                }
+                else if (ii === 1) {
+                    let text = $(this).text();
+                    if (text != null && text != "null" && text != "") {
+                        xyz["Description"] = text;
+                    }
+                }
+
+            });
+            summaryList.push(xyz);
+        });
+
+
+        if (error === false) {
+            $.ajax({
+                url: "/LorryBill/LorryBillPrint",
+                type: "POST",
+                beforeSend: function (xhr) { $('.lb2_view_ajax-loader').css("visibility", "visible"); },
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                data: JSON.stringify(
+                    {
+                        LorryBillId: billId,
+                        LorryId: lorry,
+                        TripList: tripList,
+                        AdvanceList: advanceList,
+                        SummaryList: summaryList
+                    }),
+                success: function (response) {
+                    var data = JSON.parse(response);
+                    if (data.Message == "OK") {
+                        var window1 = window.open('', '_blank');
+                        window1.document.write("<iframe width='100%' height='100%' src='data:application/pdf;base64, " + encodeURI(data.Content) + "'></iframe>");
+                    }
+                    else {
+                        ShowInformationDialog("Error", data.Message);
+                    }
+                },
+                complete: function () {
+                    $('.lb2_view_ajax-loader').css("visibility", "hidden");
+                }
+            });
+
+        }
+
+    });
+
 });
 
 function PopulateLorryBillGrid(TripList, AdvanceList, SummaryList) {
